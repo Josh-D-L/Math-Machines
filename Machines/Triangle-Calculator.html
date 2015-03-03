@@ -725,6 +725,7 @@
 					returnInfo[5] = workingSideAC;
 					break;
 				// Law of sine - SSA (Unfortunately, this works.)
+				// WARNING - UNRELIABLE
 				case 'true,false,false,true,true,false,false':
 					var sineA = Math.sin(toRadians(simplifiedReturnInfo[0]));
 					var workingAngleC = sineA * simplifiedReturnInfo[3];
