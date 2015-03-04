@@ -53,6 +53,10 @@
 	  	newBox.setAttribute("class", "item");
 	  	document.getElementById("Items").appendChild(newBox);
 	  }
+	  function removeBox() {
+	  	var box = document.getElementsByClassName("item")[document.getElementsByClassName("item").length - 1];
+		box.parentNode.removeChild(box);
+	  }
 	</script>
 	<H5 style="position: fixed; bottom: 0px; right: 25px; color: #000000" id="mine">
 		Copyright Josh Lawson
