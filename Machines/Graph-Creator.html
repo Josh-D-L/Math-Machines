@@ -85,8 +85,6 @@
 	    scaleY = Number(scaleY) + Number(yIntercept);
 	    scaleY = diagram.height / scaleY;
 	    var scaleX = diagram.width / document.getElementById("xVal").value;
-	    console.log(scaleX);
-	    console.log(scaleY);
 	    for (var x = scaleX; x < 500; x += scaleX) {
 	    	draw.moveTo(x, 0);
 	    	draw.lineTo(x, diagram.height);
