@@ -69,7 +69,7 @@
 	  	var choose = document.getElementById("choose").value;
 	  	var result;
 	  	switch (selected.join(",")) {
-	  		case "C,Y":
+	  		case "C,N":
 	  			var nFactorial = 1;
 	  			for (var x = choices; x > 1; x--) {
 	  				nFactorial = nFactorial * x; 
@@ -88,7 +88,7 @@
 	  			result = nFactorial / n_rFactorial;
 	  			result = result / rFactorial;
 	  			break;
-	  		case "C,N":
+	  		case "C,Y":
 	  			var n_r_1_Factorial = 1;
 	  			for (var x = choices + choose - 1; x > 1; x--) {
 	  				n_r_1_Factorial = n_r_1_Factorial * x;
