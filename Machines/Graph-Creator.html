@@ -44,16 +44,16 @@
 		<input type="number" id="Font Size" onchange="fontSize()" style="width: 45px" value="16" min="1" max="100">
 		Font Size (px)
 		<br>
-		<input type="color" id="Line Color">
+		<input type="color" id="Line Color" onchange="submit()">
 		Diagram Line Color
 		<br>
-		<input type="color" id="Diagram Background Color">
+		<input type="color" id="Diagram Background Color" onchange="submit()">
 		Diagram Background Color
 		<br>
 		<input type="number" id="Height/Width" onchange="heightWidth()" value="500" style="width: 45px" min="1">
 		Diagram Height / Width (px)
 		<br>
-		<input type="number" id="xVal" value="5" style="width: 45px" min="1">
+		<input type="number" id="xVal" value="5" style="width: 45px" min="1" onchange="submit()">
 		Show x to ...
 		<br>
 		<button type="button" onclick="reset()">Reset Settings</button>
@@ -183,6 +183,7 @@
 			diagram.height = document.getElementById("Height/Width").value;
 			diagram.style.marginTop = (-diagram.height / 2) + "px";
 			diagram.style.marginLeft = (-diagram.width / 2) + "px";
+			submit();
 		}
 		function settings() {
 			if (localStorage.getItem("Diagram Background Color") != null) {
@@ -198,6 +199,7 @@
 				diagram.height = document.getElementById("Height/Width").value;
 				diagram.style.marginTop = (-diagram.height / 2) + "px";
 				diagram.style.marginLeft = (-diagram.width / 2) + "px";
+				submit();
 			}
 			if (localStorage.getItem("Font Size") != null) {
 				document.getElementById("Font Size").value = localStorage.getItem("Font Size");
@@ -205,6 +207,7 @@
 			}
 			if (localStorage.getItem("xVal") != null) {
 				document.getElementById("xVal").value = localStorage.getItem("xVal");
+				submit();
 			}
 			document.getElementById("Title Color").value = localStorage.getItem("Title Color");
 			document.getElementById("Text Color").value = localStorage.getItem("Text Color");
