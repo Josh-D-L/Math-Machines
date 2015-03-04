@@ -46,7 +46,8 @@
 	  function anotherBox() {
 	  	var newBox = document.createElement("input");
 	  	newBox.setAttribute("type", "text");
-	  	newBox.setAttribute("placeholder", "Item 1");
+	  	var number = document.getElementsByClassName("item")[document.getElementsByClassName("item").length - 1].split("Item ")[1];
+	  	newBox.setAttribute("placeholder", "Item " + number);
 	  	newBox.setAttribute("class", "item");
 	  	document.getElementById("Items").appendChild(newBox);
 	  }
