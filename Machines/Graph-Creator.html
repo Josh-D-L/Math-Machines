@@ -95,8 +95,8 @@
 	    	draw.lineTo(diagram.width, x);
 	    	draw.stroke();
 	    }
-	    var pointA = [0, scaleY * Number(yIntercept)];
-	    var pointB = [document.getElementById("xVal").value, scaleY * Number(yIntercept) + scaleY * Number(slope) * Number(document.getElementById("xVal").value)];
+	    var pointA = [0, diagram.height - scaleY * Number(yIntercept)];
+	    var pointB = [document.getElementById("xVal").value * scaleX, diagram.height - (scaleY * Number(yIntercept) + scaleY * Number(slope) * Number(document.getElementById("xVal").value))];
 	    draw.moveTo(pointA[0], pointA[1]);
 	    draw.lineTo(pointB[0], pointB[1]);
 	    draw.stroke();
