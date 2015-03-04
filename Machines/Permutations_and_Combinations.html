@@ -62,7 +62,7 @@
 	  	selected[1] = $('input[name="Repeat"]:checked').val();
 	  	var choices = document.getElementById("choices").value;
 	  	var choose = document.getElementById("choose").value;
-	  	var result = document.getElementById("Result").innerText;
+	  	var result;
 	  	switch (selected.join(",")) {
 	  		case "C,Y":
 	  			result = Math.pow(choices, choose);
@@ -74,6 +74,7 @@
 	  		case "P,N":
 	  			break;
 	  	}
+	  	document.getElementById("Result").innerText = result;
 	  }
 	</script>
 	<H5 style="position: fixed; bottom: 0px; right: 25px; color: #000000" id="mine">
