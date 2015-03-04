@@ -44,6 +44,13 @@
 	<button type="button" onclick="removeBox()">Delete the last box</button>
 	<br>
 	<script>
+	document.getElementsByClassName("item")[0].addEventListener('keypress', function (e) {
+		var key = e.which || e.keyCode;
+		if (key == 13) {
+			anotherBox();
+		}
+		
+	});
 	  function anotherBox() {
 	  	var newBox = document.createElement("input");
 	  	newBox.setAttribute("type", "text");
@@ -53,6 +60,14 @@
 	  	newBox.setAttribute("size", 10);
 	  	newBox.setAttribute("class", "item");
 	  	document.getElementById("Items").appendChild(newBox);
+		newBox.addEventListener('keypress', function (e) {
+			var key = e.which || e.keyCode;
+			if (key == 13) {
+				anotherBox();
+			}
+			
+		});
+		focus(newBox);
 	  }
 	  function removeBox() {
 	  	if (document.getElementsByClassName("item").length - 1 != 0) {
