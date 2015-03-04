@@ -17,7 +17,7 @@
 <BODY>
 	<H1 style="text-align:center" id="title">Permutations and Combinations</H1>
 	<p>
-		
+		Boxes with nothing typed into them will be deleted.
 	</p>
 	<button type="button" style="position: fixed; right: 25px; top: 0px;" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
 	<br>
@@ -42,6 +42,8 @@
 	</div>
 	<button type="button" onclick="anotherBox()">Add another box</button>
 	<button type="button" onclick="removeBox()">Delete the last box</button>
+	<br>
+	<button type="button" onclick="submit()">Submit</button>
 	<br>
 	<script>
 	document.getElementsByClassName("item")[0].addEventListener('keypress', function (e) {
@@ -77,6 +79,14 @@
 	  		document.getElementsByClassName("item")[0].value = "";
 	  	}
 	  	
+	  }
+	  function submit() {
+	  	for (var x = 0; x < document.getElementsByClassName("item").length; x++) {
+	  		if (document.getElementsByClassName("item")[x].value == "") {
+	  			var box = document.getElementsByClassName("item")[x];
+	  			box.parentNode.removeChild(box);
+	  		}
+	  	}
 	  }
 	</script>
 	<H5 style="position: fixed; bottom: 0px; right: 25px; color: #000000" id="mine">
