@@ -2,7 +2,62 @@
 
 <head>
 	<link rel="canonical" href="https://josh-d-l.github.io/Math-Machines/Permutations_and_Combinations" />
-	<script type="text/javascript">
+	<style>
+	.spoiler {
+		background-color: #A0A0A0;
+		display: inline;
+		position: fixed;
+		right: 25px;
+		top: 20px;
+	}
+	</style>
+	<title>Permutations and Combinations</title>
+</head>
+
+<BODY>
+	<H1 style="text-align:center" id="title">Permutations and Combinations</H1>
+	<p>
+		
+	</p>
+	<button type="button" style="position: fixed; right: 25px; top: 0px;" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
+	<br>
+	<br>
+	<div class="spoiler" onmouseout="hide()" id="spoiler">
+		<input type="color" id="Background Color" onchange="backgroundColor()">
+		Background Color
+		<br>
+		<input type="color" id="Text Color" onchange="textColor()">
+		Text Color
+		<br>
+		<input type="color" id="Title Color" onchange="titleColor()">
+		Title Color
+		<br>
+		<input type="number" id="Font Size" onchange="fontSize()" style="width: 45px" value="16" min="1" max="100">
+		Font Size (px)
+		<br>
+		<button type="button" onclick="reset()">Reset Settings</button>
+	</div>
+	<div id="Items">
+	  <input type="text" placeholder="Item 1" class="item"></input>
+	</div>
+	<button type="button" onclick="anotherBox()">Add another box</button>
+	<br>
+	<script>
+	  function anotherBox() {
+	  	var newBox = document.createElement("input");
+	  	newBox.setAttribute("type", "text");
+	  	newBox.setAttribute("placeholder", "Item 1");
+	  	newBox.setAttribute("class", "item");
+	  	document.getElementById("Items").appendChild(newBox);
+	  }
+	</script>
+	<H5 style="position: fixed; bottom: 0px; right: 25px; color: #000000" id="mine">
+		Copyright Josh Lawson
+	</H5>
+	<div style="position: fixed; bottom: 0px; left: 0px; color: #000000">
+		<a href="https://josh-d-l.github.io/Math-Machines/" style="font-size: 200%;">Home Page</a>
+ 	</div>
+ 	<script type="text/javascript">
 	var host = "http://josh-d-l.github.io";
 	if ((host == window.location.host) && (window.location.protocol != "https:")) {
 		window.location.protocol = "https";
@@ -85,61 +140,6 @@
   		document.body.style.backgroundColor = "#FFFFFF";
   	}
 	</script>
-	<style>
-	.spoiler {
-		background-color: #A0A0A0;
-		display: inline;
-		position: fixed;
-		right: 25px;
-		top: 20px;
-	}
-	</style>
-	<title>Permutations and Combinations</title>
-</head>
-
-<BODY>
-	<H1 style="text-align:center" id="title">Permutations and Combinations</H1>
-	<p>
-		
-	</p>
-	<button type="button" style="position: fixed; right: 25px; top: 0px;" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
-	<br>
-	<br>
-	<div class="spoiler" onmouseout="hide()" id="spoiler">
-		<input type="color" id="Background Color" onchange="backgroundColor()">
-		Background Color
-		<br>
-		<input type="color" id="Text Color" onchange="textColor()">
-		Text Color
-		<br>
-		<input type="color" id="Title Color" onchange="titleColor()">
-		Title Color
-		<br>
-		<input type="number" id="Font Size" onchange="fontSize()" style="width: 45px" value="16" min="1" max="100">
-		Font Size (px)
-		<br>
-		<button type="button" onclick="reset()">Reset Settings</button>
-	</div>
-	<div id="Items">
-	  <input type="text" placeholder="Item 1" class="item"></input>
-	</div>
-	<button type="button" onclick="anotherBox()">Add another box</button>
-	<br>
-	<script>
-	  function anotherBox() {
-	  	var newBox = document.createElement("input");
-	  	newBox.setAttribute("type", "text");
-	  	newBox.setAttribute("placeholder", "Item 1");
-	  	newBox.setAttribute("class", "item");
-	  	document.getElementById("Items").appendChild(newBox);
-	  }
-	</script>
-	<H5 style="position: fixed; bottom: 0px; right: 25px; color: #000000" id="mine">
-		Copyright Josh Lawson
-	</H5>
-	<div style="position: fixed; bottom: 0px; left: 0px; color: #000000">
-		<a href="https://josh-d-l.github.io/Math-Machines/" style="font-size: 200%;">Home Page</a>
- 	</div>
 </BODY>
 
 </HTML>
