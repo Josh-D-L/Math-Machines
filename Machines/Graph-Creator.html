@@ -95,6 +95,11 @@
 	    	draw.lineTo(diagram.width, x);
 	    	draw.stroke();
 	    }
+	    var pointA = [0, scaleY * Number(yIntercept)];
+	    var pointB = [document.getElementById("xVal").value, scaleY * Number(yIntercept) + scaleY * Number(slope) * Number(document.getElementById("xVal").value)];
+	    draw.moveTo(pointA[0], pointA[1]);
+	    draw.lineTo(pointB[0], pointB[1]);
+	    draw.stroke();
 	  }
 	  function changeVariable() {
 		for (var x = 0; x < document.getElementsByClassName("VariableA").length; x++) {
