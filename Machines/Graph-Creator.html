@@ -87,18 +87,55 @@
 	<iframe src="https://josh-d-l.github.io/Settings-Tab" id="Settings-Tab" style="display:none"></iframe>
 	<script src="https://josh-d-l.github.io/Settings.js"></script>
 	<script>
-		<input type="color" id="Line Color" onchange="submit()">
-		Diagram Line Color
-		<br>
-		<input type="color" id="Diagram Background Color" onchange="submit()">
-		Diagram Background Color
-		<br>
-		<input type="number" id="Height/Width" onchange="heightWidth()" value="500" style="width: 45px" min="1">
-		Diagram Height / Width (px)
-		<br>
-		<input type="number" id="xVal" value="5" style="width: 45px" min="1" onchange="submit()">
-		Show x to ...
-		<br>
+		var settings = document.getElementById("InjectTo").innerHTML;
+		var settings_0 = settings.slice(0, settings.indexOf("<button type="button" onclick="reset()">Reset Settings</button>"));
+		var settings_2 = settings.slice(settings.indexOf("<button type="button" onclick="reset()">Reset Settings</button>"));
+		var settings_1 = '<input type="color" id="Line Color" onchange="submit()">'
+		var settings_1 += 'Diagram Line Color'
+		var settings_1 += '<br>'
+		var settings_1 += '<input type="color" id="Diagram Background Color" onchange="submit()">'
+		var settings_1 += 'Diagram Background Color'
+		var settings_1 += '<br>'
+		var settings_1 += '<input type="number" id="Height/Width" onchange="heightWidth()" value="500" style="width: 45px" min="1">'
+		var settings_1 += 'Diagram Height / Width (px)'
+		var settings_1 += '<br>'
+		var settings_1 += '<input type="number" id="xVal" value="5" style="width: 45px" min="1" onchange="submit()">'
+		var settings_1 += 'Minimum units on x axis'
+		var settings_1 += '<br>'
+		document.getElementById("InjectTo").innerHTML = settings_0 + settings_1 + settings_2;
+		var reset_string = reset.toString(); 
+		reset_string = reset_string.slice(0, reset_string.indexOf("}"));
+		reset_string += 'document.getElementById("Diagram Background Color").value = "#FFFFFF";';
+		reset_string += 'document.getElementById("Line Color").value = "#000000";';
+		reset_string += 'document.getElementById("Height/Width").value = "500";';
+		reset_string += 'document.getElementById("xVal").value = "5";';
+		reset_string += "}"; 
+		eval(reset_string);
+		function heightWidth() {
+			var diagram = document.getElementById("diagram");
+			diagram.width = document.getElementById("Height/Width").value;
+			diagram.height = document.getElementById("Height/Width").value;
+			diagram.style.marginTop = (-diagram.height / 2) + "px";
+			diagram.style.marginLeft = (-diagram.width / 2) + "px";
+			submit();
+		}
+		var endSession_string = endSession.toString(); 
+		endSession_string = endSession_string.slice(0, endSession_string.indexOf("}"));
+		endSession_string += 'localStorage.setItem("Line Color", document.getElementById("Line Color").value);';
+		endSession_string += 'localStorage.setItem("Diagram Background Color", document.getElementById("Diagram Background Color").value);';
+		endSession_string += 'localStorage.setItem("Height/Width", document.getElementById("Height/Width").value);';
+		endSession_string += 'localStorage.setItem("xVal", document.getElementById("xVal").value);';
+		endSession_string += "}";
+		eval(endSession_string);
+		var settings_string = settings.toString(); 
+		settings_string = settings_string.slice(0, settings_string.indexOf("}"));
+		settings_string += 'document.getElementById("Line Color").value = localStorage.getItem("Line Color");';
+		settings_string += 'document.getElementById("Diagram Background Color").value = localStorage.getItem("Diagram Background Color");';
+		settings_string += 'document.getElementById("Height/Width").value = localStorage.getItem("Height/Width");';
+		settings_string += 'document.getElementById("xVal").value = localStorage.getItem("xVal");';
+		settings_string += 'submit();';
+		settings_string += "}";
+		eval(settings_string);
 	</script>
 	<div style="position: fixed; bottom: 0px; left: 0px; color: #000000">
 		<a href="https://josh-d-l.github.io/Math-Machines/" style="font-size: 200%;">Home Page</a>
