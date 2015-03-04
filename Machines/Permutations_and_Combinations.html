@@ -89,7 +89,23 @@
 	  			result = result / rFactorial;
 	  			break;
 	  		case "C,N":
-	  			
+	  			var n_r_1_Factorial = 1;
+	  			for (var x = choices + choose - 1; x > 1; x--) {
+	  				n_r_1_Factorial = n_r_1_Factorial * x; 
+	  				console.log(n_r_1_Factorial);
+	  			}
+	  			var rFactorial = 1;
+	  			for (x = choose; x > 1; x--) {
+	  				rFactorial = rFactorial * x; 
+	  				console.log(rFactorial);
+	  			}
+	  			var n_1_Factorial = 1;
+	  			for (var x = choices - 1; x > 1; x--) {
+	  				n_1_Factorial = n_1_Factorial * x; 
+	  				console.log(n_1_Factorial);
+	  			}
+	  			result = rFactorial * n_1_Factorial;
+	  			result = n_r_1_Factorial / result;
 	  			break;
 	  		case "P,Y":
 	  			result = Math.pow(choices, choose);
