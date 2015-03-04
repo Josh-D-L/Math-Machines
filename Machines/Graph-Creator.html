@@ -54,7 +54,7 @@
 		Diagram Height / Width (px)
 		<br>
 		<input type="number" id="xVal" value="5" style="width: 45px" min="1">
-		Show x to...
+		Show x to ...
 		<br>
 		<button type="button" onclick="reset()">Reset Settings</button>
 	</div>
@@ -85,18 +85,19 @@
 	    scaleY = Number(scaleY);
 	    scaleY = diagram.height / scaleY;
 	    var scaleX = diagram.width / document.getElementById("xVal").value;
-	    for (var x = scaleX; x < diagram.width; x += scaleX) {
+	    var scale = Math.min(scaleY, scaleX);
+	    for (var x = scale; x < diagram.width; x += scale) {
 	    	draw.moveTo(x, 0);
 	    	draw.lineTo(x, diagram.height);
 	    	draw.stroke();
 	    }
-	    for (var x = scaleY; x < diagram.height; x += scaleY) {
+	    for (var x = scale; x < diagram.height; x += scale) {
 	    	draw.moveTo(0, x);
 	    	draw.lineTo(diagram.width, x);
 	    	draw.stroke();
 	    }
-	    var pointA = [0, diagram.height - scaleY * Number(yIntercept)];
-	    var pointB = [document.getElementById("xVal").value * scaleX, diagram.height - (scaleY * Number(yIntercept) + scaleY * Number(slope) * Number(document.getElementById("xVal").value))];
+	    var pointA = [0, diagram.height - scale * Number(yIntercept)];
+	    var pointB = [Number(document.getElementById("xVal").value) * scale, diagram.height - (scale * Number(yIntercept) + scale * Number(slope) * Number(document.getElementById("xVal").value))];
 	    draw.moveTo(pointA[0], pointA[1]);
 	    draw.lineTo(pointB[0], pointB[1]);
 	    draw.stroke();
