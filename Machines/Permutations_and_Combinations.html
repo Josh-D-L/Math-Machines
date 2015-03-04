@@ -40,60 +40,39 @@
 		<br>
 		<button type="button" onclick="reset()">Reset Settings</button>
 	</div>
-	<div id="Items">
-	  <input type="text" placeholder="Item 1" class="item" size=10></input>
-	</div>
-	<button type="button" onclick="submit()">Submit</button>
+	<input type="number" id="choices" min=1 step=1>Choices
 	<br>
-	<input type="radio" name="P / C" id="P" value="P" checked>Permutation<br>
-	<input type="radio" name="P / C" id="C" value="C">Combination<br>
-	<input type="radio" name="Repeat" id="Y" value="Y" checked>Repetition<br>
+	<input type="number" id="choose" min=1 step=1>Choose
+	<br>
+	<input type="radio" name="P / C" id="P" value="P" checked>Permutation
+	<br>
+	<input type="radio" name="P / C" id="C" value="C">Combination
+	<br>
+	<input type="radio" name="Repeat" id="Y" value="Y" checked>Repetition
+	<br>
 	<input type="radio" name="Repeat" id="N" value="N">No repetition
-
+	<br>
+	<button type="button" onclick="calculate()">Submit</button>
+	<br>
+	<p id="Result"></p>
 	<script>
-	document.getElementsByClassName("item")[0].addEventListener('keypress', function (e) {
-		var key = e.which || e.keyCode;
-		if (key == 13) {
-			anotherBox();
-		}
-		
-	});
-	  function anotherBox() {
-	  	var newBox = document.createElement("input");
-	  	newBox.setAttribute("type", "text");
-	  	var number = document.getElementsByClassName("item")[document.getElementsByClassName("item").length - 1].getAttribute("placeholder").split("Item ")[1];
-	  	number = Number(number) + 1;
-	  	newBox.setAttribute("placeholder", "Item " + number);
-	  	newBox.setAttribute("size", 10);
-	  	newBox.setAttribute("class", "item");
-	  	document.getElementById("Items").appendChild(newBox);
-		newBox.addEventListener('keypress', function (e) {
-			var key = e.which || e.keyCode;
-			if (key == 13) {
-				anotherBox();
-			}
-			
-		});
-		newBox.focus();
-	  }
-	  function submit() {
-	  	for (var x = 1; x < document.getElementsByClassName("item").length; x++) {
-	  		if (document.getElementsByClassName("item")[x].value == "") {
-	  			var box = document.getElementsByClassName("item")[x];
-	  			box.parentNode.removeChild(box);
-	  			x--;
-	  		}
-	  	}
-	  	calculate();
-	  	
-	  }
 	  function calculate() {
 	  	var selected = [];
 	  	selected[0] = $('input[name="P / C"]:checked').val();
 	  	selected[1] = $('input[name="Repeat"]:checked').val();
-	  	alert(selected);
-	  	switch (selected) {
-	  		
+	  	var choices = document.getElementById("choices").value;
+	  	var choose = document.getElementById("choose").value;
+	  	var result = document.getElementById("Result").innerText;
+	  	switch (selected.join(",")) {
+	  		case "C,Y":
+	  			result = Math.pow(choices, choose);
+	  			break;
+	  		case "C,N":
+	  			break;
+	  		case "P,Y":
+	  			break;
+	  		case "P,N":
+	  			break;
 	  	}
 	  }
 	</script>
