@@ -78,7 +78,7 @@
 	    }
 	    var diagram = document.getElementById("diagram");
 	    var draw = diagram.getContext("2d");
-	    draw.clearRect(0, 0, diagram.width, diagram.height);
+	    diagram.width = diagram.width
 	    diagram.style.backgroundColor = document.getElementById("Diagram Background Color").value;
 	    draw.strokeStyle = document.getElementById("Line Color").value;
 	    var scaleY = slope * document.getElementById("xVal").value;
