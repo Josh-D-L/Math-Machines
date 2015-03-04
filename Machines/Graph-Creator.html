@@ -82,7 +82,7 @@
 	    diagram.style.backgroundColor = document.getElementById("Diagram Background Color").value;
 	    draw.strokeStyle = document.getElementById("Line Color").value;
 	    var scaleY = slope * document.getElementById("xVal").value;
-	    scaleY = Number(scaleY) + Number(yIntercept);
+	    scaleY = Number(scaleY);
 	    scaleY = diagram.height / scaleY;
 	    var scaleX = diagram.width / document.getElementById("xVal").value;
 	    for (var x = scaleX; x < diagram.width; x += scaleX) {
