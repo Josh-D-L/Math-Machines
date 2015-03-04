@@ -10,6 +10,11 @@
 		right: 25px;
 		top: 20px;
 	}
+	canvas {
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
 	</style>
 	<title>Graph Creator</title>
 </head>
@@ -39,13 +44,21 @@
 		<button type="button" onclick="reset()">Reset Settings</button>
 	</div>
 	<br>
-	y = <input type="text" id="equation" placeholder="Slope - Intercept form">
+	<input type="text" id="variable" style="width: 12px" title="Variable" onChange="changeVariable();" value="X">
+	<br>
+	y&nbsp;=&nbsp;<input type="text" id="Coefficient" title="Coefficient"><span class="VariableA">X</span>&nbsp;<input type="text" class="FactorExpression" style="width: 12px" title="+ / -" value="+"></input>&nbsp;<input type="text" id="Constant" title="Constant">
 	<br>
 	<button type="button" onclick="submit()">Submit</button>
 	<script>
 	  function submit() {
 	    
 	  }
+	  function changeVariable() {
+		for (var x = 0; x < document.getElementsByClassName("VariableA").length; x++) {
+			var Variable = document.getElementById("variable").value;
+			document.getElementsByClassName("VariableA")[x].innerText = Variable;
+		}
+	}
 	</script>
 	<H5 style="position: fixed; bottom: 0px; right: 25px; color: #000000" id="mine">
 		Copyright Josh Lawson
