@@ -53,6 +53,9 @@
 		<input type="number" id="Height/Width" onchange="heightWidth()" value="500" style="width: 45px" min="1">
 		Diagram Height / Width (px)
 		<br>
+		<input type="number" id="xVal" value="5" style="width: 45px" min="1">
+		Show x to...
+		<br>
 		<button type="button" onclick="reset()">Reset Settings</button>
 	</div>
 	<br>
@@ -73,6 +76,18 @@
 	    } else {
 	    	var yIntercept = -Number(document.getElementById("Constant").value);
 	    }
+	    var diagram = document.getElementById("diagram");
+	    var draw = diagram.getContext("2d");
+	    draw.clearRect(0, 0, diagram.width, diagram.height);
+	    var scaleY = slope * document.getElementById("xVal").value;
+	    scaleY = Number(scaleY) + Number(yIntercept);
+	    scaleY = diagram.height / scaleY;
+	    var scaleX = diagram.height / document.getElementById("xVal").value;
+	    for (var x = scaleX; x < 500; x += scaleX) {
+	    	draw.moveTo(x, 0);
+		draw.lineTo(x, diagram.height);
+	    }
+	    draw.stroke();
 	  }
 	  function changeVariable() {
 		for (var x = 0; x < document.getElementsByClassName("VariableA").length; x++) {
@@ -112,6 +127,7 @@
 			localStorage.setItem("Text Color", document.getElementById("Text Color").value);
 			localStorage.setItem("Line Color", document.getElementById("Line Color").value);
 			localStorage.setItem("Height/Width", document.getElementById("Height/Width").value);
+			localStorage.setItem("xVal", document.getElementById("xVal").value);
 		}
 		window.onbeforeunload = function() {
 			if (!validNavigation) {
@@ -174,6 +190,7 @@
 				document.getElementById("Font Size").value = localStorage.getItem("Font Size");
 				document.body.style.fontSize = localStorage.getItem("Font Size") + "px";
 			}
+			document.getElementById("xVal").value = localStorage.getItem("xVal");
 			document.getElementById("Title Color").value = localStorage.getItem("Title Color");
 			document.getElementById("Text Color").value = localStorage.getItem("Text Color");
 			document.getElementById("Line Color").value = localStorage.getItem("Line Color");
@@ -189,6 +206,7 @@
 			document.getElementById("Text Color").value = "#000000";
 			document.getElementById("Line Color").value = "#000000";
 			document.getElementById("Height/Width").value = "500";
+			document.getElementById("xVal").value = "5";
 			document.getElementById("title").style.color = "#000000";
 			document.getElementById("Font Size").value = "16";
 			document.body.style.fontSize = 16 + "px";
