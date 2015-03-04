@@ -38,7 +38,7 @@
 		<button type="button" onclick="reset()">Reset Settings</button>
 	</div>
 	<div id="Items">
-	  <input type="text" placeholder="Item 1" class="item"></input>
+	  <input type="text" placeholder="Item 1" class="item" width="40px"></input>
 	</div>
 	<button type="button" onclick="anotherBox()">Add another box</button>
 	<br>
@@ -47,8 +47,9 @@
 	  	var newBox = document.createElement("input");
 	  	newBox.setAttribute("type", "text");
 	  	var number = document.getElementsByClassName("item")[document.getElementsByClassName("item").length - 1].getAttribute("placeholder").split("Item ")[1];
-	  	number = Number(number) + 1
+	  	number = Number(number) + 1;
 	  	newBox.setAttribute("placeholder", "Item " + number);
+	  	newBox.setAttribute("width", "40px");
 	  	newBox.setAttribute("class", "item");
 	  	document.getElementById("Items").appendChild(newBox);
 	  }
