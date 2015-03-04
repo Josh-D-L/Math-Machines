@@ -70,7 +70,7 @@
 		newBox.focus();
 	  }
 	  function submit() {
-	  	for (var x = 0; x < document.getElementsByClassName("item").length; x++) {
+	  	for (var x = 1; x < document.getElementsByClassName("item").length; x++) {
 	  		if (document.getElementsByClassName("item")[x].value == "") {
 	  			var box = document.getElementsByClassName("item")[x];
 	  			box.parentNode.removeChild(box);
