@@ -50,7 +50,7 @@
 		<input type="color" id="Diagram Background Color">
 		Diagram Background Color
 		<br>
-		<input type="number" id="Height/Width" value="500" style="width: 45px" min="1">
+		<input type="number" id="Height/Width" onchange="heightWidth()" value="500" style="width: 45px" min="1">
 		Diagram Height / Width (px)
 		<br>
 		<button type="button" onclick="reset()">Reset Settings</button>
@@ -148,6 +148,13 @@
 			var size = document.getElementById("Font Size").value;
 			document.body.style.fontSize = size + "px";
 		}
+		function heightWidth() {
+			var diagram = document.getElementById("diagram");
+			diagram.width = document.getElementById("Height/Width").value;
+			diagram.height = document.getElementById("Height/Width").value;
+			diagram.style.margin-top = (-diagram.height / 2) + "px";
+			diagram.style.margin-left = (-diagram.width / 2) + "px";
+		}
 		function settings() {
 			if (localStorage.getItem("Diagram Background Color") != null) {
 				document.getElementById("Diagram Background Color").value = localStorage.getItem("Diagram Background Color");
@@ -157,6 +164,11 @@
 			}
 			if (localStorage.getItem("Height/Width") != null) {
 				document.getElementById("Height/Width").value = localStorage.getItem("Height/Width");
+				var diagram = document.getElementById("diagram");
+				diagram.width = document.getElementById("Height/Width").value;
+				diagram.height = document.getElementById("Height/Width").value;
+				diagram.style.margin-top = (-diagram.height / 2) + "px";
+				diagram.style.margin-left = (-diagram.width / 2) + "px";
 			}
 			if (localStorage.getItem("Font Size") != null) {
 				document.getElementById("Font Size").value = localStorage.getItem("Font Size");
