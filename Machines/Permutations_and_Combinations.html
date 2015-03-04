@@ -17,8 +17,9 @@
 <BODY>
 	<H1 style="text-align:center" id="title">Permutations and Combinations</H1>
 	<p>
-		Boxes with nothing typed into them will be deleted.
-		Press enter when you have the last textbox selected to create a new one
+		Boxes with nothing typed into them will be deleted.<br>
+		Press enter when you have the last textbox selected to create a new one<br>
+		Remember, Permutation means order does matter, and Combination means order doesn't matter.
 	</p>
 	<button type="button" style="position: fixed; right: 25px; top: 0px;" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
 	<br>
@@ -43,6 +44,12 @@
 	</div>
 	<button type="button" onclick="submit()">Submit</button>
 	<br>
+	<input type="text" placeholder="Item 1" class="item" size=10></input>
+	<input type="radio" name="P / C" value="P">Permutation<br>
+	<input type="radio" name="P / C" value="C">Combination<br>
+	<input type="radio" name="Repeat" value="Y">Repetition<br>
+	<input type="radio" name="Repeat" value="N">No repetition
+
 	<script>
 	document.getElementsByClassName("item")[0].addEventListener('keypress', function (e) {
 		var key = e.which || e.keyCode;
@@ -77,6 +84,10 @@
 	  			x--;
 	  		}
 	  	}
+	  	calculate();
+	  }
+	  function calculate() {
+	  	
 	  }
 	</script>
 	<H5 style="position: fixed; bottom: 0px; right: 25px; color: #000000" id="mine">
