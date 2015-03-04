@@ -73,6 +73,8 @@
 	  	if (document.getElementsByClassName("item").length - 1 != 0) {
 			var box = document.getElementsByClassName("item")[document.getElementsByClassName("item").length - 1];
 			box.parentNode.removeChild(box);	
+	  	} else {
+	  		document.getElementsByClassName("item")[0].value = "";
 	  	}
 	  	
 	  }
