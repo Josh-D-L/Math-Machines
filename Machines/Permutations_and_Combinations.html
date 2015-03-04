@@ -70,7 +70,19 @@
 	  	var result;
 	  	switch (selected.join(",")) {
 	  		case "C,Y":
-	  			
+	  			var nFactorial = 1;
+	  			for (var x = choices; x > 1; x--) {
+	  				nFactorial = nFactorial * x; 
+	  			}
+	  			var rFactorial = 1;
+	  			for (x = choose; x > 1; x--) {
+	  				rFactorial = rFactorial * x; 
+	  			}
+	  			var n-rFactorial = 1;
+	  			for (x = choices - choose; x > 1; x--) {
+	  				n-rFactorial = n-rFactorial * x; 
+	  			}
+	  			result = nFactorial / (rFactorial * n-rFactorial);
 	  			break;
 	  		case "C,N":
 	  			
