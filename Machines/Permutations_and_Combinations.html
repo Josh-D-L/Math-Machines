@@ -11,6 +11,7 @@
 		top: 20px;
 	}
 	</style>
+	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 	<title>Permutations and Combinations</title>
 </head>
 
@@ -44,10 +45,10 @@
 	</div>
 	<button type="button" onclick="submit()">Submit</button>
 	<br>
-	<input type="radio" name="P / C" value="P" checked>Permutation<br>
-	<input type="radio" name="P / C" value="C">Combination<br>
-	<input type="radio" name="Repeat" value="Y" checked>Repetition<br>
-	<input type="radio" name="Repeat" value="N">No repetition
+	<input type="radio" name="P / C" id="P" value="P" checked>Permutation<br>
+	<input type="radio" name="P / C" id="C" value="C">Combination<br>
+	<input type="radio" name="Repeat" id="Y" value="Y" checked>Repetition<br>
+	<input type="radio" name="Repeat" id="N" value="N">No repetition
 
 	<script>
 	document.getElementsByClassName("item")[0].addEventListener('keypress', function (e) {
@@ -84,8 +85,16 @@
 	  		}
 	  	}
 	  	calculate();
+	  	
 	  }
 	  function calculate() {
+	  	var selected = [];
+	  	selected[0] = $('input[name=P / C]:checked').val();
+	  	selected[1] = $('input[name=Repeat]:checked').val();
+	  	alert(selected);
+	  	switch (selected) {
+	  		
+	  	}
 	  }
 	</script>
 	<H5 style="position: fixed; bottom: 0px; right: 25px; color: #000000" id="mine">
