@@ -85,9 +85,9 @@
 	    var scaleX = diagram.height / document.getElementById("xVal").value;
 	    for (var x = scaleX; x < 500; x += scaleX) {
 	    	draw.moveTo(x, 0);
-		draw.lineTo(x, diagram.height);
+	    	draw.lineTo(x, diagram.height);
+	    	draw.stroke();
 	    }
-	    draw.stroke();
 	  }
 	  function changeVariable() {
 		for (var x = 0; x < document.getElementsByClassName("VariableA").length; x++) {
