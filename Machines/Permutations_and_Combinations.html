@@ -18,6 +18,7 @@
 	<H1 style="text-align:center" id="title">Permutations and Combinations</H1>
 	<p>
 		Boxes with nothing typed into them will be deleted.
+		Press when you have the last textbox selected to create a new one
 	</p>
 	<button type="button" style="position: fixed; right: 25px; top: 0px;" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
 	<br>
@@ -40,9 +41,6 @@
 	<div id="Items">
 	  <input type="text" placeholder="Item 1" class="item" size=10></input>
 	</div>
-	<button type="button" onclick="anotherBox()">Add another box</button>
-	<button type="button" onclick="removeBox()">Delete the last box</button>
-	<br>
 	<button type="button" onclick="submit()">Submit</button>
 	<br>
 	<script>
@@ -71,20 +69,12 @@
 		});
 		newBox.focus();
 	  }
-	  function removeBox() {
-	  	if (document.getElementsByClassName("item").length - 1 != 0) {
-			var box = document.getElementsByClassName("item")[document.getElementsByClassName("item").length - 1];
-			box.parentNode.removeChild(box);	
-	  	} else {
-	  		document.getElementsByClassName("item")[0].value = "";
-	  	}
-	  	
-	  }
 	  function submit() {
 	  	for (var x = 0; x < document.getElementsByClassName("item").length; x++) {
 	  		if (document.getElementsByClassName("item")[x].value == "") {
 	  			var box = document.getElementsByClassName("item")[x];
 	  			box.parentNode.removeChild(box);
+	  			x--;
 	  		}
 	  	}
 	  }
