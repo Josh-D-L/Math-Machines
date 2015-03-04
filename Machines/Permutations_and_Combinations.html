@@ -70,17 +70,19 @@
 	  	var result;
 	  	switch (selected.join(",")) {
 	  		case "C,Y":
-	  			result = Math.pow(choices, choose);
+	  			
 	  			break;
 	  		case "C,N":
+	  			
+	  			break;
+	  		case "P,Y":
+	  			result = Math.pow(choices, choose);
+	  			break;
+	  		case "P,N":
 	  			result = 1;
 	  			for (var x = choices; x > choices - choose; x--) {
 	  				result = result * x; 
 	  			}
-	  			break;
-	  		case "P,Y":
-	  			break;
-	  		case "P,N":
 	  			break;
 	  	}
 	  	document.getElementById("Result").innerText = "There are " + result + " possibilities.";
