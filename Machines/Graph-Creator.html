@@ -124,6 +124,7 @@
 			reset_string += 'document.getElementById("Height/Width").value = "500";';
 			reset_string += 'document.getElementById("xVal").value = "5";';
 			reset_string += "}"; 
+			console.log(reset_string);
 			eval(reset_string);
 			function heightWidth() {
 				var diagram = document.getElementById("diagram");
@@ -140,6 +141,7 @@
 			endSession_string += 'localStorage.setItem("Height/Width", document.getElementById("Height/Width").value);';
 			endSession_string += 'localStorage.setItem("xVal", document.getElementById("xVal").value);';
 			endSession_string += "}";
+			console.log(endSession_string);
 			eval(endSession_string);
 			var settings_string = settings.toString(); 
 			settings_string = settings_string.slice(0, settings_string.indexOf("}"));
@@ -150,6 +152,7 @@
 			settings_string += 'document.getElementById("xVal").value = localStorage.getItem("xVal");';
 			settings_string += 'submit();';
 			settings_string += "}";
+			console.log(settings_string);
 			eval(settings_string);
 		}
 	</script>
