@@ -38,8 +38,24 @@
 	$('#contact-form').attr('action', action);
 });
 </script>
-<div id="InjectTo"></div>
-<iframe src="https://josh-d-l.github.io/Settings-Tab" id="Settings-Tab" style="display:none"></iframe>
+<button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
+<br>
+<br>
+<div class="spoiler" onmouseout="hide()" id="spoiler" style="display: none;">
+	<input type="color" id="Background Color" onchange="backgroundColor()"/>
+	Background Color
+	<br/>
+	<input type="color" id="Text Color" onchange="textColor()"/>
+	Text Color
+	<br/>
+	<input type="color" id="Title Color" onchange="titleColor()"/>
+	Title Color
+	<br/>
+	<input type="number" id="Font Size" onchange="fontSize()" style="width: 45px" value="16" min="1" max="100"/>
+	Font Size (px)
+	<br/>
+	<button type="button" onclick="reset()">Reset Settings</button>
+</div>
 <script src="https://josh-d-l.github.io/Settings.js"></script>
 <H5 style="position: fixed; bottom: 0px; right: 25px; color: #000000" id="mine">
 	Copyright Josh Lawson
