@@ -119,7 +119,9 @@ function settings() {
 document.getElementsByClassName("spoiler")[0].style.display = "none";
 document.getElementById("Background Color").value = "#FFFFFF";
 settings();
-window.onbeforeunload = endSession();
+window.onbeforeunload = function() {
+	endSession();
+}
 var host = "josh-d-l.github.io";
 if ((host == window.location.host) && (window.location.protocol != "https:")) {
 	window.location.protocol = "https";
