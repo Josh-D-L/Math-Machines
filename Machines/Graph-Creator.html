@@ -114,55 +114,15 @@
 		<button type="button" onclick="reset()">Reset Settings</button>
 	</div>
 	<script>
-		function reassign() {
-			document.getElementById("Diagram Background Color").value = "#FFFFFF";
-			var reset_string = reset.toString(); 
-			reset_string = reset_string.slice(0, reset_string.lastIndexOf("}"));
-			reset_string += '	document.getElementById("Diagram Background Color").value = "#FFFFFF";\n';
-			reset_string += '	document.getElementById("Line Color").value = "#000000";\n';
-			reset_string += '	document.getElementById("Height/Width").value = "500";\n';
-			reset_string += '	document.getElementById("xVal").value = "5";\n';
-			reset_string += "}"; 
-			console.log(reset_string);
-			eval(reset_string);
-			function heightWidth() {
-				var diagram = document.getElementById("diagram");
-				diagram.width = document.getElementById("Height/Width").value;
-				diagram.height = document.getElementById("Height/Width").value;
-				diagram.style.marginTop = (-diagram.height / 2) + "px";
-				diagram.style.marginLeft = (-diagram.width / 2) + "px";
-				submit();
-			}
-			var endSession_string = endSession.toString(); 
-			endSession_string = endSession_string.slice(0, endSession_string.lastIndexOf("}"));
-			endSession_string += '	localStorage.setItem("Line Color", document.getElementById("Line Color").value);\n';
-			endSession_string += '	localStorage.setItem("Diagram Background Color", document.getElementById("Diagram Background Color").value);\n';
-			endSession_string += '	localStorage.setItem("Height/Width", document.getElementById("Height/Width").value);\n';
-			endSession_string += '	localStorage.setItem("xVal", document.getElementById("xVal").value);\n';
-			endSession_string += '	console.log(localStorage.getItem("xVal"));\n';
-			endSession_string += "}";
-			console.log(endSession_string);
-			eval(endSession_string);
-			var settings_string = settings.toString(); 
-			settings_string = settings_string.slice(0, settings_string.lastIndexOf("}"));
-			settings_string += '	document.getElementById("Line Color").value = localStorage.getItem("Line Color");\n';
-			settings_string += '	if (localStorage.getItem("Diagram Background Color") != null) {\n';
-			settings_string += '		document.getElementById("Diagram Background Color").value = localStorage.getItem("Diagram Background Color");\n';
-			settings_string += '	}\n';
-			settings_string += '	document.getElementById("Height/Width").value = localStorage.getItem("Height/Width");\n';
-			settings_string += '	document.getElementById("xVal").value = localStorage.getItem("xVal");\n';
-			settings_string += '	submit();\n';
-			settings_string += "}";
-			console.log(settings_string);
-			eval(settings_string);
-		}
-	</script>
-	<script>
 function endSession() {
 	  localStorage.setItem("Background Color", document.getElementById("Background Color").value);
 	  localStorage.setItem("Title Color", document.getElementById("Title Color").value);
 	  localStorage.setItem("Text Color", document.getElementById("Text Color").value);
 	  localStorage.setItem("Font Size", document.getElementById("Font Size").value);
+	  localStorage.setItem("Line Color", document.getElementById("Line Color").value);
+	  localStorage.setItem("Diagram Background Color", document.getElementById("Diagram Background Color").value);
+	  localStorage.setItem("Height/Width", document.getElementById("Height/Width").value);
+	  localStorage.setItem("xVal", document.getElementById("xVal").value);
 }
 var toggle = "on";
 function toggleDisplay() {
@@ -173,6 +133,14 @@ function toggleDisplay() {
 		document.getElementById("spoiler").style.display = "none";
 		toggle = "on";
 	}
+}
+function heightWidth() {
+	var diagram = document.getElementById("diagram");
+	diagram.width = document.getElementById("Height/Width").value;
+	diagram.height = document.getElementById("Height/Width").value;
+	diagram.style.marginTop = (-diagram.height / 2) + "px";
+	diagram.style.marginLeft = (-diagram.width / 2) + "px";
+	submit();
 }
 function hide() {
 	var wait = setTimeout(function() {
@@ -192,6 +160,10 @@ function reset() {
 	document.getElementById("title").style.color = "#000000";
 	document.body.style.color = "#000000";
 	document.body.style.backgroundColor = "#FFFFFF";
+	document.getElementById("Diagram Background Color").value = "#FFFFFF";
+	document.getElementById("Line Color").value = "#000000";
+	document.getElementById("Height/Width").value = "500";
+	document.getElementById("xVal").value = "5";
 }
 function backgroundColor() {
 	var color = document.getElementById("Background Color").value;
@@ -222,6 +194,13 @@ function settings() {
 	document.getElementById("title").style.color = localStorage.getItem("Title Color");
 	document.body.style.color = localStorage.getItem("Text Color");
 	document.body.style.backgroundColor = localStorage.getItem("Background Color");
+	document.getElementById("Line Color").value = localStorage.getItem("Line Color");
+	if (localStorage.getItem("Diagram Background Color") != null) {
+		document.getElementById("Diagram Background Color").value = localStorage.getItem("Diagram Background Color");
+	}
+	document.getElementById("Height/Width").value = localStorage.getItem("Height/Width");
+	document.getElementById("xVal").value = localStorage.getItem("xVal");
+	submit();
 }
 document.getElementsByClassName("spoiler")[0].style.display = "none";
 document.getElementById("Background Color").value = "#FFFFFF";
