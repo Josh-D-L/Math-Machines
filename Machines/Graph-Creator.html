@@ -83,26 +83,38 @@
 	<H5 style="position: fixed; bottom: 0px; right: 25px; color: #000000" id="mine">
 		Copyright Josh Lawson
 	</H5>
-	<div id="InjectTo"></div>
-	<iframe src="https://josh-d-l.github.io/Settings-Tab" id="Settings-Tab" style="display:none"></iframe>
+	<button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
+	<br>
+	<br>
+	<div class="spoiler" onmouseout="hide()" id="spoiler" style="display: none;">
+		<input type="color" id="Background Color" onchange="backgroundColor()"/>
+		Background Color
+		<br>
+		<input type="color" id="Text Color" onchange="textColor()"/>
+		Text Color
+		<br>
+		<input type="color" id="Title Color" onchange="titleColor()"/>
+		Title Color
+		<br>
+		<input type="number" id="Font Size" onchange="fontSize()" style="width: 45px" value="16" min="1" max="100"/>
+		Font Size (px)
+		<br>
+		<input type="color" id="Line Color" onchange="submit()">
+		Diagram Line Color
+		<br>
+		<input type="color" id="Diagram Background Color" onchange="submit()">
+		Diagram Background Color
+		<br>
+		<input type="number" id="Height/Width" onchange="heightWidth()" value="500" style="width: 45px" min="1">
+		Diagram Height / Width (px)
+		<br>
+		<input type="number" id="xVal" value="5" style="width: 45px" min="1" onchange="submit()">
+		Minimum units on x axis
+		<br>
+		<button type="button" onclick="reset()">Reset Settings</button>
+	</div>
 	<script src="https://josh-d-l.github.io/Settings.js"></script>
 	<script>
-		var settings = document.getElementById("InjectTo").innerHTML;
-		var settings_0 = settings.slice(0, settings.indexOf("<button type="button" onclick="reset()">Reset Settings</button>"));
-		var settings_2 = settings.slice(settings.indexOf("<button type="button" onclick="reset()">Reset Settings</button>"));
-		var settings_1 = '<input type="color" id="Line Color" onchange="submit()">'
-		var settings_1 += 'Diagram Line Color'
-		var settings_1 += '<br>'
-		var settings_1 += '<input type="color" id="Diagram Background Color" onchange="submit()">'
-		var settings_1 += 'Diagram Background Color'
-		var settings_1 += '<br>'
-		var settings_1 += '<input type="number" id="Height/Width" onchange="heightWidth()" value="500" style="width: 45px" min="1">'
-		var settings_1 += 'Diagram Height / Width (px)'
-		var settings_1 += '<br>'
-		var settings_1 += '<input type="number" id="xVal" value="5" style="width: 45px" min="1" onchange="submit()">'
-		var settings_1 += 'Minimum units on x axis'
-		var settings_1 += '<br>'
-		document.getElementById("InjectTo").innerHTML = settings_0 + settings_1 + settings_2;
 		var reset_string = reset.toString(); 
 		reset_string = reset_string.slice(0, reset_string.indexOf("}"));
 		reset_string += 'document.getElementById("Diagram Background Color").value = "#FFFFFF";';
