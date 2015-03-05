@@ -116,6 +116,7 @@
 	<script src="https://josh-d-l.github.io/Settings.js"></script>
 	<script>
 		function reassign() {
+			document.getElementById("Diagram Background Color").value = "#FFFFFF";
 			var reset_string = reset.toString(); 
 			reset_string = reset_string.slice(0, reset_string.indexOf("}"));
 			reset_string += 'document.getElementById("Diagram Background Color").value = "#FFFFFF";';
@@ -143,7 +144,8 @@
 			var settings_string = settings.toString(); 
 			settings_string = settings_string.slice(0, settings_string.indexOf("}"));
 			settings_string += 'document.getElementById("Line Color").value = localStorage.getItem("Line Color");';
-			settings_string += 'document.getElementById("Diagram Background Color").value = localStorage.getItem("Diagram Background Color");';
+			settings_string += 'if (localStorage.getItem("Diagram Background Color") != null) {';
+			settings_string += 'document.getElementById("Diagram Background Color").value = localStorage.getItem("Diagram Background Color");}';
 			settings_string += 'document.getElementById("Height/Width").value = localStorage.getItem("Height/Width");';
 			settings_string += 'document.getElementById("xVal").value = localStorage.getItem("xVal");';
 			settings_string += 'submit();';
