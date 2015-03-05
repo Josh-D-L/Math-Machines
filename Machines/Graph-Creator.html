@@ -53,7 +53,7 @@
 	    diagram.style.backgroundColor = document.getElementById("Diagram Background Color").value;
 	    draw.strokeStyle = document.getElementById("Line Color").value;
 	    var scaleY = slope * document.getElementById("xVal").value;
-	    scaleY = Number(scaleY);
+	    scaleY = Number(scaleY) + Number(yIntercept);
 	    scaleY = diagram.height / scaleY;
 	    var scaleX = diagram.width / document.getElementById("xVal").value;
 	    var scale = Math.min(scaleY, scaleX);
