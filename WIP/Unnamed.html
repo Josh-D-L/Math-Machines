@@ -79,19 +79,25 @@
 			var pointYcoord = 500 - document.getElementById("startY").value;
 		}
 		var rand = Math.random();
+		console.log("X coord: " + pointXcoord);
+		console.log("Y coord: " + pointYcoord);
+		console.log(rand);
 		if (rand < .33333) {
+			console.log("1");
 			var newX = pointXcoord / 2;
 			var newY = 500 - (pointYcoord / 2);
 			sessionStorage.xCoord = newX;
 			sessionStorage.yCoord = newY;
 			draw.fillRect(newX, newY, 1, 1);
 		} else if (rand >= .33333 && rand < .66666) {
+			console.log("2");
 			var newX = (250 + pointXcoord) / 2;
 			var newY = 500 - ((67 + pointYcoord) / 2);
 			sessionStorage.xCoord = newX;
 			sessionStorage.yCoord = newY;
 			draw.fillRect(newX, newY, 1, 1);
 		} else {
+			console.log("3");
 			var newX = (500 + pointXcoord) / 2;
 			var newY = 500 - ((67 + pointYcoord) / 2);
 			sessionStorage.xCoord = newX;
