@@ -31,6 +31,18 @@
 <script>
 	var diagram = document.getElementById("diagram");
 	var draw = diagram.getContext("2d");
+	draw.moveTo(0, 500);
+	draw.lineTo(250, 433);
+	draw.stroke();
+	draw.moveTo(0, 500);
+	draw.lineTo(500, 500);
+	draw.stroke();
+	draw.moveTo(500, 500);
+	draw.lineTo(250, 433);
+	draw.stroke();
+	var coords = [document.getElementById("startX").value, document.getElementById("startY").value];
+	draw.fillRect(coords[0], coords[1], 1, 1);
+	document.getElementById("Points").innerText = 1;
 	function choosePoint() {
 		draw.clearRect(0, 0, diagram.width, diagram.height);
 		draw.moveTo(0, 500);
