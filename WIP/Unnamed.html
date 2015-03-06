@@ -61,12 +61,12 @@
 		document.getElementById("Points").innerText = 1;
 	}
 	function start() {
-		var interval = setInterval(draw(), 100); 
+		var interval = setInterval(points(), 100); 
 	}
 	function stop() {
 		clearInterval(interval);
 	}
-	function draw() {
+	function points() {
 		document.getElementById("Points").innerText = Number(document.getElementById("Points").innerText) + 1;
 	}
 </script>
