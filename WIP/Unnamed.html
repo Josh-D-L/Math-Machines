@@ -14,6 +14,7 @@
 </head>
 <body style="">
 <h1 style="text-align: center;" id="title">Unnamed</h1>
+<canvas id="diagram" width="500" height="500" style="border:1px solid #000000;" title="Diagram"></canvas>
 <p><div id="Points">0</div> points have been drawn.</p>
 <br>
 <input type="number" id="startX" placeholder="Starting x point" value="250" min="1" max="500" onchange="choosePoint()">
@@ -25,6 +26,7 @@
 	function choosePoint() {
 		var coords = [document.getElementById("startX").value, document.getElementById("startY").value];
 		draw.fillRect(coords[0], coords[1], 1, 1);
+		document.getElementById("Points").innerText = 1;
 	}
 </script>
 <button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
