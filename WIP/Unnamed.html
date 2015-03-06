@@ -71,13 +71,13 @@
 		document.getElementById("Points").innerText = Number(document.getElementById("Points").innerText) + 1;
 		if (sessionStorage.xCoord) {
 			var pointXcoord = sessionStorage.xCoord;
-			console.log("existing data");
+			console.log(sessionStorage.xCoord);
 		} else {
 			var pointXcoord = document.getElementById("startX").value;
 		}
 		if (sessionStorage.yCoord) {
 			var pointYcoord = sessionStorage.yCoord;
-			console.log("existing data");
+			console.log(sessionStorage.yCoord);
 		} else {
 			var pointYcoord = 500 - document.getElementById("startY").value;
 		}
