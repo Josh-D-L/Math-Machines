@@ -69,15 +69,13 @@
 	}
 	function points() {
 		document.getElementById("Points").innerText = Number(document.getElementById("Points").innerText) + 1;
-		if (sessionStorage.xCoord) {
+		if (sessionStorage.xCoord != NaN) {
 			var pointXcoord = sessionStorage.xCoord;
-			console.log(sessionStorage.xCoord);
 		} else {
 			var pointXcoord = document.getElementById("startX").value;
 		}
-		if (sessionStorage.yCoord) {
+		if (sessionStorage.yCoord != NaN) {
 			var pointYcoord = sessionStorage.yCoord;
-			console.log(sessionStorage.yCoord);
 		} else {
 			var pointYcoord = 500 - document.getElementById("startY").value;
 		}
