@@ -14,6 +14,19 @@
 </head>
 <body style="">
 <h1 style="text-align: center;" id="title">Unnamed</h1>
+<p><div id="Points">0</div> points have been drawn.</p>
+<br>
+<input type="number" id="startX" placeholder="Starting x point" value="250" min="1" max="500" onchange="choosePoint()">
+<br>
+<input type="number" id="startY" placeholder="Starting y point" value="250" min="1" max="500" onchange="choosePoint()">
+<script>
+	var diagram = document.getElementById("diagram");
+	var draw = diagram.getContext("2d");
+	function choosePoint() {
+		var coords = [document.getElementById("startX").value, document.getElementById("startY").value];
+		draw.fillRect(coords[0], coords[1], 1, 1);
+	}
+</script>
 <button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
 <br>
 <br>
