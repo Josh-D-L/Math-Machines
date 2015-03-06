@@ -33,6 +33,10 @@
 	var draw = diagram.getContext("2d");
 	function choosePoint() {
 		draw.clearRect(0, 0, diagram.width, diagram.height);
+		draw.moveTo(0, 500);
+		draw.lineTo(183, 183);
+		draw.moveTo(0, 500);
+		draw.lineTo(500, 500);
 		var coords = [document.getElementById("startX").value, document.getElementById("startY").value];
 		draw.fillRect(coords[0], coords[1], 1, 1);
 		document.getElementById("Points").innerText = 1;
