@@ -70,8 +70,10 @@
 	function points() {
 		document.getElementById("Points").innerText = Number(document.getElementById("Points").innerText) + 1;
 		if (sessionStorage.xCoord != NaN) {
+			console.log(sessionStorage.xCoord);
 			var pointXcoord = sessionStorage.xCoord;
 		} else {
+			console.log(sessionStorage.yCoord);
 			var pointXcoord = document.getElementById("startX").value;
 		}
 		if (sessionStorage.yCoord != NaN) {
