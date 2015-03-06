@@ -28,6 +28,8 @@
 <input type="number" id="startX" placeholder="Starting x point" value="250" min="1" max="500" onchange="choosePoint()">
 <br>
 <input type="number" id="startY" placeholder="Starting y point" value="250" min="1" max="500" onchange="choosePoint()">
+<br>
+<button onclick="start()">Start</button><button onclick="stop()">Stop</button>
 <script>
 	var diagram = document.getElementById("diagram");
 	var draw = diagram.getContext("2d");
@@ -57,6 +59,15 @@
 		var coords = [document.getElementById("startX").value, 500 - document.getElementById("startY").value];
 		draw.fillRect(coords[0], coords[1], 1, 1);
 		document.getElementById("Points").innerText = 1;
+	}
+	function start() {
+		var interval = setInterval(draw(), 100); 
+	}
+	function stop() {
+		clearInterval(interval);
+	}
+	function draw() {
+		document.getElementById("Points").innerText = Number(document.getElementById("Points").innerText) + 1;
 	}
 </script>
 <button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
