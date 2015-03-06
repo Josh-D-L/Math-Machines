@@ -61,10 +61,10 @@
 		document.getElementById("Points").innerText = 1;
 	}
 	function start() {
-		var interval = setInterval(points, 100); 
+		sessionStorage.interval = setInterval(points, 100); 
 	}
 	function stop() {
-		clearInterval(interval);
+		clearInterval(sessionStorage.interval);
 	}
 	function points() {
 		document.getElementById("Points").innerText = Number(document.getElementById("Points").innerText) + 1;
