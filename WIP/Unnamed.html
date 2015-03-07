@@ -56,7 +56,7 @@
 		draw.moveTo(diagram.width, diagram.width);
 		draw.lineTo(diagram.width / 2, diagram.width - (Math.sqrt(3) * diagram.width / 2));
 		draw.stroke();
-		var coords = [document.getElementById("startX").value, 500 - document.getElementById("startY").value];
+		var coords = [document.getElementById("startX").value, diagram.width - document.getElementById("startY").value];
 		draw.fillRect(coords[0], coords[1], 1, 1);
 		clearInterval(sessionStorage.interval);
 		document.getElementById("Points").innerText = 1;
