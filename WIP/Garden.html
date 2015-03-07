@@ -74,6 +74,11 @@
 	}
 	function clear() {
 		$('.container').empty();
+		console.log("test");
+		var toClear = document.getElementsByClassName("container")[0];
+		while (toClear.firstChild) {
+			toClear.removeChild(toClear.firstChild);
+		}
 	}
 	</script>
 	<button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
