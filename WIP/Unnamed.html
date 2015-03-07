@@ -23,7 +23,7 @@
 <body style="">
 <h1 style="text-align: center;" id="title">Unnamed</h1>
 <canvas id="diagram" width="500" height="500" title="Diagram"></canvas>
-<p><span id="Points">0</span> points have been drawn.</p>
+<p><span id="Points">0</span> points have been drawn in <span id="Time">0</span> seconds.</p>
 <br>
 <input type="number" id="startX" placeholder="Starting x point" value="250" min="1" max="500" onchange="choosePoint()">
 <br>
@@ -71,6 +71,7 @@
 	sessionStorage.setItem("xCoord", document.getElementById("startX").value);
 	sessionStorage.setItem("yCoord", 500 - document.getElementById("startY").value);
 	function points() {
+		var a = performance.now;
 		document.getElementById("Points").innerText = Number(document.getElementById("Points").innerText) + 1;
 		var pointXcoord = sessionStorage.getItem("xCoord");
 		var pointYcoord = sessionStorage.getItem("yCoord");
@@ -94,6 +95,8 @@
 			sessionStorage.setItem("yCoord", newY);
 			draw.fillRect(newX, 500 - newY, 1, 1);
 		}
+		var b = performance.now;
+		document.getElementById("Time").innerText = Number(document.getElementById("Time").innerText) + ((b - a) / 1000);
 	}
 </script>
 <button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
