@@ -71,7 +71,9 @@
 		document.getElementById("Points").innerText = Number(document.getElementById("Points").innerText) + 1;
 		if (sessionStorage.getItem("xCoord")) {
 			var pointXcoord = sessionStorage.xCoord;
-			console.log(sessionStorage.getItem("xCoord"));
+			console.log(sessionStorage.getItem("xCoord") == NaN);
+			console.log(sessionStorage.getItem("xCoord") == null);
+			console.log(sessionStorage.getItem("xCoord") == undefined);
 		} else {
 			var pointXcoord = document.getElementById("startX").value;
 		}
