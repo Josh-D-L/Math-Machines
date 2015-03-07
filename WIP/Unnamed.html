@@ -77,7 +77,7 @@
 		console.log("X coord: " + pointXcoord);
 		console.log("Y coord: " + pointYcoord);
 		console.log(rand);
-		/* if (rand < .33333) {
+		if (rand < .33333) {
 			console.log("1");
 			var newX = pointXcoord / 2;
 			var newY = pointYcoord / 2;
@@ -92,14 +92,13 @@
 			sessionStorage.setItem("yCoord", newY);
 			draw.fillRect(newX, 500 - newY, 1, 1);
 		} else {
-		*/
 			console.log("3");
 			var newX = (500 + Number(pointXcoord)) / 2;
 			var newY = Number(pointYcoord) / 2;
 			sessionStorage.setItem("xCoord", newX);
 			sessionStorage.setItem("yCoord", newY);
 			draw.fillRect(newX, 500 - newY, 1, 1);
-		// }
+		}
 	}
 </script>
 <button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
