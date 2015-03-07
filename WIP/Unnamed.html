@@ -74,6 +74,7 @@
 			
 		} else {
 			var pointXcoord = sessionStorage.xCoord;
+			console.log(sessionStorage.xCoord == null);
 		}
 		if (sessionStorage.getItem("yCoord") == null) {
 			var pointYcoord = 500 - document.getElementById("startY").value;
