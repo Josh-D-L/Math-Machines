@@ -73,13 +73,15 @@
 			var pointXcoord = document.getElementById("startX").value;
 			
 		} else {
-			console.log("x Coord " + sessionStorage.getItem("xCoord"));
+			console.log("x Coord ");
+			console.log(sessionStorage.getItem("xCoord"));
 			var pointXcoord = sessionStorage.xCoord;
 		}
 		if (sessionStorage.getItem("yCoord") == NaN) {
 			var pointYcoord = 500 - document.getElementById("startY").value;
 		} else {
-			console.log("y Coord " + sessionStorage.getItem("yCoord"));
+			console.log("y Coord ");
+			console.log(sessionStorage.getItem("yCoord"));
 			var pointYcoord = sessionStorage.yCoord;
 		}
 		var rand = Math.random();
