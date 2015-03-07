@@ -42,6 +42,9 @@
 		<input type="number" id="width" style="width: 45px" min="2" max="4" value="4"/>
 		Length (ft)
 		<br>
+		<input type="number" id="snap" style="width: 45px" value="1" min="1" />
+		Grid snap (ft)
+		<br>
 		<input type="checkbox" id="rotated" style="width: 45px" value="true"/>
 		Rotated?
 		<br>
@@ -51,9 +54,6 @@
 		<button onclick="submit()">Submit</button>
 		<br>
 		<button onclick="erase()">Clear</button>
-		<br>
-		<input type="number" id="snap" style="width: 45px" value="1" min="1" />
-		Grid snap (ft)
 		<br>
 	</div>
 	<div class="container">
@@ -72,7 +72,7 @@
 	function submit() {
 		var box = document.createElement('div');
 		document.getElementsByClassName("container")[0].appendChild(box);
-		var snap = document.getElementById("snap").value;
+		var snap = document.getElementById("snap").value * 15;
 		box.className = 'box';
 		$( ".box" ).draggable({
 			containment: "parent"
