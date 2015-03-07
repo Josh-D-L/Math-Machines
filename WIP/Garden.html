@@ -47,6 +47,8 @@
 		Label
 		<br>
 		<button onclick="submit()">Submit</button>
+		<br>
+		<button onclick="clear()">Clear</button>
 	</div>
 	<div class="container">
 	</div>
@@ -70,7 +72,12 @@
 			box.style.transform = "rotate(90deg)";
 		}
 	}
-	
+	function clear() {
+		var myNode = document.getElementById("foo");
+		while (myNode.firstChild) {
+			myNode.removeChild(myNode.firstChild);
+		}
+	}
 	</script>
 	<button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
 	<br>
