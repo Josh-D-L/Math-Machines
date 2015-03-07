@@ -67,21 +67,12 @@
 	function stop() {
 		clearInterval(sessionStorage.interval);
 	}
+	sessionStorage.setItem("xCoord", document.getElementById("startX").value);
+	sessionStorage.setItem("yCoord", 500 - document.getElementById("startY").value);
 	function points() {
 		document.getElementById("Points").innerText = Number(document.getElementById("Points").innerText) + 1;
-		if (sessionStorage.getItem("xCoord")) {
-			var pointXcoord = sessionStorage.getItem("yCoord");
-			console.log(sessionStorage.getItem("xCoord") == NaN);
-			console.log(sessionStorage.getItem("xCoord") == null);
-			console.log(sessionStorage.getItem("xCoord") == undefined);
-		} else {
-			var pointXcoord = document.getElementById("startX").value;
-		}
-		if (sessionStorage.getItem("yCoord")) {
-			var pointYcoord = sessionStorage.getItem("yCoord");
-		} else {
-			var pointYcoord = 500 - document.getElementById("startY").value;
-		}
+		var pointXcoord = sessionStorage.getItem("xCoord");
+		var pointYcoord = sessionStorage.getItem("yCoord");
 		var rand = Math.random();
 		console.log("X coord: " + pointXcoord);
 		console.log("Y coord: " + pointYcoord);
