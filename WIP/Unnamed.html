@@ -98,7 +98,7 @@
 			draw.fillRect(newX, 500 - newY, 1, 1);
 		}
 		var b = performance.now();
-		document.getElementById("Time").innerText = (Math.round((b - a) / 10) / 100) - 4;
+		document.getElementById("Time").innerText = Math.round((b - a) / 10) / 100;
 	}
 </script>
 <button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
