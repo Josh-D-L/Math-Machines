@@ -87,10 +87,10 @@
 		} else */ if (/* rand >= .33333 && */ rand < 1.66666) {
 			console.log("2");
 			var newX = (250 + Number(pointXcoord)) / 2;
-			var newY = 500 - ((433 + Number(pointYcoord)) / 2);
+			var newY = (433 + Number(pointYcoord)) / 2;
 			sessionStorage.setItem("xCoord", newX);
 			sessionStorage.setItem("yCoord", newY);
-			draw.fillRect(newX, newY, 1, 1);
+			draw.fillRect(newX, 500 - newY, 1, 1);
 		} else {
 			console.log("3");
 			var newX = (500 + Number(pointXcoord)) / 2;
