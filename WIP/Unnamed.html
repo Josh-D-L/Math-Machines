@@ -33,28 +33,28 @@
 <script>
 	var diagram = document.getElementById("diagram");
 	var draw = diagram.getContext("2d");
-	draw.moveTo(0, 500);
-	draw.lineTo(250, 67);
+	draw.moveTo(0, 750);
+	draw.lineTo(375, 101);
 	draw.stroke();
-	draw.moveTo(0, 500);
-	draw.lineTo(500, 500);
+	draw.moveTo(0, 750);
+	draw.lineTo(750, 750);
 	draw.stroke();
-	draw.moveTo(500, 500);
-	draw.lineTo(250, 67);
+	draw.moveTo(750, 750);
+	draw.lineTo(375, 101);
 	draw.stroke();
 	var coords = [document.getElementById("startX").value, document.getElementById("startY").value];
 	draw.fillRect(coords[0], coords[1], 1, 1);
 	document.getElementById("Points").innerText = 1;
 	function choosePoint() {
 		draw.clearRect(0, 0, diagram.width, diagram.height);
-		draw.moveTo(0, 500);
-		draw.lineTo(250, 67);
+		draw.moveTo(0, 750);
+		draw.lineTo(375, 101);
 		draw.stroke();
-		draw.moveTo(0, 500);
-		draw.lineTo(500, 500);
+		draw.moveTo(0, 750);
+		draw.lineTo(750, 750);
 		draw.stroke();
-		draw.moveTo(500, 500);
-		draw.lineTo(250, 67);
+		draw.moveTo(750, 750);
+		draw.lineTo(375, 101);
 		draw.stroke();
 		var coords = [document.getElementById("startX").value, 500 - document.getElementById("startY").value];
 		draw.fillRect(coords[0], coords[1], 1, 1);
@@ -71,7 +71,7 @@
 		clearInterval(sessionStorage.interval);
 	}
 	sessionStorage.setItem("xCoord", document.getElementById("startX").value);
-	sessionStorage.setItem("yCoord", 500 - document.getElementById("startY").value);
+	sessionStorage.setItem("yCoord", 750 - document.getElementById("startY").value);
 	var a = performance.now();
 	function points() {
 		document.getElementById("Points").innerText = Number(document.getElementById("Points").innerText) + 1;
@@ -83,19 +83,19 @@
 			var newY = pointYcoord / 2;
 			sessionStorage.setItem("xCoord", newX);
 			sessionStorage.setItem("yCoord", newY);
-			draw.fillRect(newX, 500 - newY, 1, 1);
+			draw.fillRect(newX, 750 - newY, 1, 1);
 		} else if ( rand >= .33333 &&  rand < .66666) {
-			var newX = (250 + Number(pointXcoord)) / 2;
-			var newY = (433 + Number(pointYcoord)) / 2;
+			var newX = (375 + Number(pointXcoord)) / 2;
+			var newY = (649 + Number(pointYcoord)) / 2;
 			sessionStorage.setItem("xCoord", newX);
 			sessionStorage.setItem("yCoord", newY);
-			draw.fillRect(newX, 500 - newY, 1, 1);
+			draw.fillRect(newX, 750 - newY, 1, 1);
 		} else {
-			var newX = (500 + Number(pointXcoord)) / 2;
+			var newX = (750 + Number(pointXcoord)) / 2;
 			var newY = Number(pointYcoord) / 2;
 			sessionStorage.setItem("xCoord", newX);
 			sessionStorage.setItem("yCoord", newY);
-			draw.fillRect(newX, 500 - newY, 1, 1);
+			draw.fillRect(newX, 750 - newY, 1, 1);
 		}
 		var b = performance.now();
 		document.getElementById("Time").innerText = Math.round((b - a) / 10) / 100;
