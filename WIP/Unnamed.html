@@ -74,14 +74,14 @@
 			
 		} else {
 			console.log("x Coord ");
-			console.log(sessionStorage.getItem("xCoord"));
+			console.log(sessionStorage.getItem("xCoord") == NaN);
 			var pointXcoord = sessionStorage.xCoord;
 		}
 		if (sessionStorage.getItem("yCoord") == NaN) {
 			var pointYcoord = 500 - document.getElementById("startY").value;
 		} else {
 			console.log("y Coord ");
-			console.log(sessionStorage.getItem("yCoord"));
+			console.log(sessionStorage.getItem("yCoord") == NaN);
 			var pointYcoord = sessionStorage.yCoord;
 		}
 		var rand = Math.random();
