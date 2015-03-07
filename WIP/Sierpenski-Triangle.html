@@ -22,7 +22,8 @@
 <input type="number" id="width" placeholder="Diagram Width" value="1300" min="1" onchange="resize()">
 <br>
 <button onclick="start()">Start</button><button onclick="stop()">Stop</button>
-<canvas id="diagram" width="1300" height="1300" title="Diagram"style="margin: 1px;"></canvas>
+<p>or Plot <input type="number" id="PtP" placeholder="Number" value="1000" min="1" max="100000"> points <button onclick="plotPoints()">Go</button></p>
+<canvas id="diagram" width="1300" height="1300" title="Diagram" style="margin: 1px;"></canvas>
 <script>
 	var diagram = document.getElementById("diagram");
 	var draw = diagram.getContext("2d");
@@ -32,6 +33,11 @@
 	var coords = [startX, startY];
 	draw.fillRect(coords[0], coords[1], 1, 1);
 	document.getElementById("Points").innerText = 1;
+	function plotPoints() {
+		for (var x = 0; x < document.getElementById("PtP").value; x++) {
+			points();
+		}
+	}
 	function resize() {
 		diagram.width = document.getElementById("width").value;
 		diagram.height = document.getElementById("width").value;
