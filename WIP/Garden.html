@@ -73,9 +73,9 @@
 		}
 	}
 	function clear() {
-		var myNode = document.getElementById("foo");
-		while (myNode.firstChild) {
-			myNode.removeChild(myNode.firstChild);
+		var toClear = document.getElementsByClassName("container")[0];
+		while (toClear.firstChild) {
+			toClear.removeChild(toClear.firstChild);
 		}
 	}
 	</script>
