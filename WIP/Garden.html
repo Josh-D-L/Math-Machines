@@ -82,6 +82,7 @@
 		if (document.getElementById("rotated").value == true) {
 			box.style.transform = "rotate(90deg)";
 		}
+		changeGrid();
 	}
 	function changeGrid() {
 		var snap = document.getElementById("snap").value * 15;
@@ -89,7 +90,6 @@
 			grid: [ snap, snap ]
 		});
 	}
-	changeGrid();
 	</script>
 	<button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
 	<br>
