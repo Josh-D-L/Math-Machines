@@ -23,7 +23,7 @@
 <body style="">
 <h1 style="text-align: center;" id="title">Unnamed</h1>
 <canvas id="diagram" width="600" height="600" title="Diagram"></canvas>
-<p><span id="Points">0</span> points have been drawn in <span id="Time">0</span> seconds.</p>
+<p><span id="Points">0</span> points have been drawn in <span id="Time">0</span> seconds. (<span id="PPS">0</span> points per second)</p>
 <br>
 <input type="number" id="startX" placeholder="Starting x point" value="250" min="1" max="500" onchange="choosePoint()">
 <br>
@@ -102,6 +102,7 @@
 		}
 		var b = performance.now();
 		document.getElementById("Time").innerText = Math.floor((b - a) / 1000);
+		document.getElementById("PPS").innerText = Number(document.getElementById("Points").innerText) / ((b - a) / 1000);
 	}
 </script>
 <button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
