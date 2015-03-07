@@ -84,10 +84,12 @@
 		$( ".box" ).draggable({
 			containment: "parent"
 		});
-		box.style.width = (document.getElementById("length").value * 15) + "px";
-		box.style.height = (document.getElementById("width").value * 15) + "px";
 		if (document.getElementById("rotated").value == true) {
-			box.style.transform = "rotate(90deg)";
+			box.style.height = (document.getElementById("length").value * 15) + "px";
+			box.style.width = (document.getElementById("width").value * 15) + "px";
+		} else {
+			box.style.width = (document.getElementById("length").value * 15) + "px";
+			box.style.height = (document.getElementById("width").value * 15) + "px";	
 		}
 		changeGrid();
 		var labels = document.getElementsByClassName("label");
