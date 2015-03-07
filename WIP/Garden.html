@@ -13,9 +13,13 @@
 	.container {
 		border:1px solid #000000;
 		width: 180px; 
-		height: 360px; 
+		height: 360px;
+		position: absolute;
 		margin-left: auto; 
 		margin-right: auto;
+	}
+	.box {
+		border: 1px solid #000000;
 	}
 	</style>
 	<title>Garden</title>
@@ -28,19 +32,44 @@
 	<p>
 		
 	</p>
+	<div>
+		Item Creator:
+		<br>
+		<input type="number" id="length" style="width: 45px" min="4" max="12" value="8"/>
+		Length (ft)
+		<br>
+		<input type="number" id="width" style="width: 45px" min="2" max="4" value="4"/>
+		Width (ft)
+		<br>
+		<input type="checkbox" id="rotated" style="width: 45px" value="true"/>
+		Rotated?
+		<br>
+		<input type="text" id="label" style="width: 45px" />
+		Label
+		<br>
+		<button onclick="submit()">Submit</button>
+	</div>
 	<div class="container">
-		<div id="8x2" style="width: 120px; height: 30px; border:1px solid #000000;"><p style="text-align: center">Far Back Bed</p></div>
 	</div>
 	<br>
 	
 	<script>
-	$( "#8x2" ).draggable();
-	$( "#8x2" ).draggable({
-		containment: "parent"
-	});
-	$( "#8x2" ).draggable({
-		grid: [ 30, 30 ]
-	});
+	function submit() {
+		var box = document.createElement('div');
+		document.getElementsByClassName("container")[0].appendChild(box);
+		box.class = 'box';
+		box.draggable({
+			containment: "parent"
+			grid: [ 30, 30 ]
+		});
+		box.innerHTML = '<p style="text-align:center;">' + document.getElementById("label").value + '</p>';
+		box.style.width = document.getElementById("width").value + "px";
+		box.style.height = document.getElementById("length").value + "px";
+		if (document.getElementById("rotated").value == true) {
+			box.style.transform = rotate(90deg);
+		}
+	}
+	
 	</script>
 	<button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
 	<br>
