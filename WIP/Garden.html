@@ -52,6 +52,9 @@
 		<br>
 		<button onclick="erase()">Clear</button>
 		<br>
+		<input type="number" id="snap" style="width: 45px" value="1" min="1" />
+		Grid snap (ft)
+		<br>
 	</div>
 	<div class="container">
 	</div>
@@ -69,12 +72,13 @@
 	function submit() {
 		var box = document.createElement('div');
 		document.getElementsByClassName("container")[0].appendChild(box);
+		var snap = document.getElementById("snap").value;
 		box.className = 'box';
 		$( ".box" ).draggable({
 			containment: "parent"
 		});
 		$( ".box" ).draggable({
-			grid: [ 15, 15 ]
+			grid: [ snap, snap ]
 		});
 		box.innerHTML = '<p style="text-align:center;">' + document.getElementById("label").value + '</p>';
 		box.style.width = (document.getElementById("length").value * 15) + "px";
