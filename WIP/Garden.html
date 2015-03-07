@@ -42,7 +42,7 @@
 		<input type="number" id="width" style="width: 45px" min="2" max="4" value="4"/>
 		Length (ft)
 		<br>
-		<input type="number" id="snap" style="width: 45px" value="1" min="1" />
+		<input type="number" id="snap" style="width: 45px" value="1" min="1" onchange="changeGrid()" />
 		Grid snap (ft)
 		<br>
 		<input type="checkbox" id="rotated" style="width: 45px" value="true"/>
@@ -72,13 +72,9 @@
 	function submit() {
 		var box = document.createElement('div');
 		document.getElementsByClassName("container")[0].appendChild(box);
-		var snap = document.getElementById("snap").value * 15;
 		box.className = 'box';
 		$( ".box" ).draggable({
 			containment: "parent"
-		});
-		$( ".box" ).draggable({
-			grid: [ snap, snap ]
 		});
 		box.innerHTML = '<p style="text-align:center;">' + document.getElementById("label").value + '</p>';
 		box.style.width = (document.getElementById("length").value * 15) + "px";
@@ -86,6 +82,12 @@
 		if (document.getElementById("rotated").value == true) {
 			box.style.transform = "rotate(90deg)";
 		}
+	}
+	function changeGrid() {
+		var snap = document.getElementById("snap").value * 15;
+		$( ".box" ).draggable({
+			grid: [ snap, snap ]
+		});
 	}
 	</script>
 	<button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
