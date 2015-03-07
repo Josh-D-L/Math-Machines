@@ -69,17 +69,16 @@
 	}
 	function points() {
 		document.getElementById("Points").innerText = Number(document.getElementById("Points").innerText) + 1;
-		if (sessionStorage.getItem("xCoord") == null) {
-			var pointXcoord = document.getElementById("startX").value;
-			
-		} else {
+		if (sessionStorage.getItem("xCoord")) {
 			var pointXcoord = sessionStorage.xCoord;
-			console.log(sessionStorage.xCoord == null);
-		}
-		if (sessionStorage.getItem("yCoord") == null) {
-			var pointYcoord = 500 - document.getElementById("startY").value;
+			console.log(sessionStorage.getItem("xCoord"));
 		} else {
+			var pointXcoord = document.getElementById("startX").value;
+		}
+		if (sessionStorage.getItem("yCoord")) {
 			var pointYcoord = sessionStorage.yCoord;
+		} else {
+			var pointYcoord = 500 - document.getElementById("startY").value;
 		}
 		var rand = Math.random();
 		console.log("X coord: " + pointXcoord);
