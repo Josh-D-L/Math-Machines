@@ -59,6 +59,7 @@
 	sessionStorage.setItem("yCoord", diagram.width - document.getElementById("startY").value);
 	var a = performance.now();
 	function points() {
+		$("#document").stop(true,true);
 		document.getElementById("Points").innerText = Number(document.getElementById("Points").innerText) + 1;
 		var pointXcoord = sessionStorage.getItem("xCoord");
 		var pointYcoord = sessionStorage.getItem("yCoord");
