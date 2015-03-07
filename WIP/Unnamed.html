@@ -95,10 +95,10 @@
 		*/
 			console.log("3");
 			var newX = (500 + Number(pointXcoord)) / 2;
-			var newY = (Number(pointYcoord) / 2);
+			var newY = Number(pointYcoord) / 2;
 			sessionStorage.setItem("xCoord", newX);
 			sessionStorage.setItem("yCoord", newY);
-			draw.fillRect(newX, newY, 1, 1);
+			draw.fillRect(newX, 500 - newY, 1, 1);
 		// }
 	}
 </script>
