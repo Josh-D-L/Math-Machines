@@ -27,9 +27,8 @@
 <script>
 	var diagram = document.getElementById("diagram");
 	var draw = diagram.getContext("2d");
-	var startX = diagram.width / 2;
-	var startY = diagram.width - ((Math.sqrt(3) * diagram.width / 2) / 2);
-	startY = Math.ceil(startY / 10) * 10;
+	var startX = 0;
+	var startY = diagram.width;
 	var coords = [startX, startY];
 	draw.fillRect(coords[0], coords[1], 1, 1);
 	document.getElementById("Points").innerText = 1;
