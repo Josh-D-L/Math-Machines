@@ -52,8 +52,8 @@
 		clearInterval(sessionStorage.interval);
 		var c = performance.now();
 	}
-	sessionStorage.setItem("xCoord", document.getElementById("startX").value);
-	sessionStorage.setItem("yCoord", diagram.width - document.getElementById("startY").value);
+	sessionStorage.setItem("xCoord", startX);
+	sessionStorage.setItem("yCoord", diagram.width - startY);
 	var a = performance.now();
 	function points() {
 		$("#document").stop(true,true);
