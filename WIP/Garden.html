@@ -48,7 +48,15 @@
 		<input type="checkbox" id="rotated" style="width: 45px" value="true"/>
 		Rotated?
 		<br>
-		<input type="text" id="label" style="width: 45px" />
+		Optional:
+		<br>
+		<input type="text" class="label" style="width: 45px" />
+		Image URL
+		<br>
+		<input type="color" class="label" style="width: 45px" />
+		Color
+		<br>
+		<input type="text" class="label" style="width: 45px" />
 		Label
 		<br>
 		<button onclick="submit()">Submit</button>
@@ -76,13 +84,22 @@
 		$( ".box" ).draggable({
 			containment: "parent"
 		});
-		box.innerHTML = '<p style="text-align:center;">' + document.getElementById("label").value + '</p>';
 		box.style.width = (document.getElementById("length").value * 15) + "px";
 		box.style.height = (document.getElementById("width").value * 15) + "px";
 		if (document.getElementById("rotated").value == true) {
 			box.style.transform = "rotate(90deg)";
 		}
 		changeGrid();
+		var labels = document.getElementsByClassName("label");
+		if (labels[0].value != "") {
+			box.style.backgroundImage = "url(" + labels[0].value + "")";
+		}
+		if (labels[1].value != "#000000") {
+			box.style.backgroundColor = labels[1].value;
+		}
+		if (labels[2].value != "") {
+			box.innerHTML = '<p style="text-align:center">' + labels[2].value + '</p>';
+		}
 	}
 	function changeGrid() {
 		var snap = document.getElementById("snap").value * 15;
