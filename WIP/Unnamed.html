@@ -80,10 +80,10 @@
 		if (rand < 1.33333) {
 			console.log("1");
 			var newX = pointXcoord / 2;
-			var newY = (pointYcoord / 2);
+			var newY = pointYcoord / 2;
 			sessionStorage.setItem("xCoord", newX);
 			sessionStorage.setItem("yCoord", newY);
-			draw.fillRect(newX, newY, 1, 1);
+			draw.fillRect(newX, 500 - newY, 1, 1);
 		} else if (rand >= .33333 && rand < .66666) {
 			console.log("2");
 			var newX = (250 + Number(pointXcoord)) / 2;
