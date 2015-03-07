@@ -65,8 +65,8 @@
 			grid: [ 30, 30 ]
 		});
 		box.innerHTML = '<p style="text-align:center;">' + document.getElementById("label").value + '</p>';
-		box.style.width = document.getElementById("width").value + "px";
-		box.style.height = document.getElementById("length").value + "px";
+		box.style.width = (document.getElementById("width").value * 15) + "px";
+		box.style.height = (document.getElementById("length").value * 15) + "px";
 		if (document.getElementById("rotated").value == true) {
 			box.style.transform = "rotate(90deg)";
 		}
