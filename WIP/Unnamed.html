@@ -35,6 +35,7 @@
 	var draw = diagram.getContext("2d");
 	document.getElementById("startX").value = diagram.width / 2;
 	document.getElementById("startY").value = diagram.width - ((diagram.width - (Math.sqrt(3) * diagram.width / 2)) / 2);
+	document.getElementById("startY").value = Math.ceil(document.getElementById("startY").value / 10) * 10;
 	draw.moveTo(0, diagram.width);
 	draw.lineTo(diagram.width / 2, diagram.width - (Math.sqrt(3) * diagram.width / 2));
 	draw.stroke();
