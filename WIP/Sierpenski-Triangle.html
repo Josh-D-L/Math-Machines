@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head>
-	<link rel="canonical" href="https://josh-d-l.github.io/Math-Machines/WIP/Sierpenski-Triangle"/>
+	<link rel="canonical" href="https://josh-d-l.github.io/Math-Machines/WIP/Sierpenski-Triangle">
 	<style>
 		.spoiler {
 			background-color: #A0A0A0;
@@ -15,28 +15,29 @@
 	</style>
 	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 </head>
-<body style="">
-<h1 style="text-align: center;" id="title">Sierpenski's Triangle</h1>
+<body style="font-size: 16px; color: rgb(0, 0, 0); background-color: rgb(192, 192, 192);">
+<h1 style="text-align: center; color: rgb(0, 0, 0);" id="title">Sierpenski's Triangle</h1>
 <canvas id="diagram" width="1300" height="1300" title="Diagram"></canvas>
-<p><span id="Points">0</span> points have been drawn in <span id="Time">0</span> <span id="Units">seconds</span>. (<span id="PPS">0</span> points per second)</p>
+<p><span id="Points">20518</span> points have been drawn in <span id="Time">797</span> <span id="Units">seconds</span>. (<span id="PPS">26</span> points per second)</p>
 <br>
-<input type="number" id="startX" placeholder="Starting x point" value="250" min="1" max="500" onchange="choosePoint()">
+<input type="number" id="width" placeholder="Diagram Width" value="1300" min="1" onchange="resize()">
 <br>
-<input type="number" id="startY" placeholder="Starting y point" value="250" min="1" max="500" onchange="choosePoint()">
-<br>
+
+
 <button onclick="start()">Start</button><button onclick="stop()">Stop</button>
 <script>
 	var diagram = document.getElementById("diagram");
 	var draw = diagram.getContext("2d");
-	document.getElementById("startX").value = diagram.width / 2;
-	document.getElementById("startY").value = diagram.width - ((Math.sqrt(3) * diagram.width / 2) / 2);
-	document.getElementById("startY").value = Math.ceil(document.getElementById("startY").value / 10) * 10;
-	var coords = [document.getElementById("startX").value, document.getElementById("startY").value];
+	var startX = diagram.width / 2;
+	var startY = diagram.width - ((Math.sqrt(3) * diagram.width / 2) / 2);
+	startY = Math.ceil(document.getElementById("startY").value / 10) * 10;
+	var coords = [startX, startY];
 	draw.fillRect(coords[0], coords[1], 1, 1);
 	document.getElementById("Points").innerText = 1;
-	function choosePoint() {
-		draw.clearRect(0, 0, diagram.width, diagram.height);
-		var coords = [document.getElementById("startX").value, diagram.width - document.getElementById("startY").value];
+	function resize() {
+		diagram.width = document.getElementById("width").value;
+		diagram.height = document.getElementById("width").value;
+		var coords = [startX, startY];
 		draw.fillRect(coords[0], coords[1], 1, 1);
 		clearInterval(sessionStorage.interval);
 		document.getElementById("Points").innerText = 1;
@@ -94,18 +95,18 @@
 <br>
 <br>
 <div class="spoiler" onmouseout="hide()" id="spoiler" style="display: none;">
-	<input type="color" id="Background Color" onchange="backgroundColor()"/>
+	<input type="color" id="Background Color" onchange="backgroundColor()">
 	Background Color
-	<br/>
-	<input type="color" id="Text Color" onchange="textColor()"/>
+	<br>
+	<input type="color" id="Text Color" onchange="textColor()">
 	Text Color
-	<br/>
-	<input type="color" id="Title Color" onchange="titleColor()"/>
+	<br>
+	<input type="color" id="Title Color" onchange="titleColor()">
 	Title Color
-	<br/>
-	<input type="number" id="Font Size" onchange="fontSize()" style="width: 45px" value="16" min="1" max="100"/>
+	<br>
+	<input type="number" id="Font Size" onchange="fontSize()" style="width: 45px" value="16" min="1" max="100">
 	Font Size (px)
-	<br/>
+	<br>
 	<button type="button" onclick="reset()">Reset Settings</button>
 </div>
 <script>
@@ -188,6 +189,7 @@ if ((host == window.location.host) && (window.location.protocol != "https:")) {
 <h5 style="position: fixed; bottom: 0px; right: 25px; color: #000000" id="mine">
 	Copyright Josh Lawson
 </h5>
+
 
 
 </body></html>
