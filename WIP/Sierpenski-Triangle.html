@@ -87,7 +87,7 @@
 		if (Math.floor((b - a) / 1000) < 1200) {
 			document.getElementById("Time").innerText = Math.floor((b - a) / 1000);
 		} else if (Math.floor((b - a) / 1000) < 7200) {
-			document.getElementById("Time").innerText = Math.floor((b - a) / 1000);
+			document.getElementById("Time").innerText = Math.floor((b - a) / 60000);
 			document.getElementById("Units").innerText = "minutes";
 		}
 		document.getElementById("PPS").innerText = Math.round(Number(document.getElementById("Points").innerText) / ((b - a) / 1000));
