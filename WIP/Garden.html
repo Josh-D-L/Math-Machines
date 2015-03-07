@@ -27,11 +27,16 @@
 	<p>
 		
 	</p>
-	<div class="container"></div>
+	<div class="container">
+		<div id="8x2"></div>
+	</div>
 	<br>
 	
 	<script>
-	  
+	$( "#8x2" ).draggable({
+		containment: "parent"
+		grid: [ 20, 20 ]
+	});
 	</script>
 	<button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
 	<br>
