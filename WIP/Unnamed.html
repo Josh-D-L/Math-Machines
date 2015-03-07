@@ -102,7 +102,7 @@
 		}
 		var b = performance.now();
 		document.getElementById("Time").innerText = Math.floor((b - a) / 1000);
-		document.getElementById("PPS").innerText = Number(document.getElementById("Points").innerText) / ((b - a) / 1000);
+		document.getElementById("PPS").innerText = Math.round(Number(document.getElementById("Points").innerText) / ((b - a) / 1000));
 	}
 </script>
 <button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
