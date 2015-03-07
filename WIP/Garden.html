@@ -84,7 +84,7 @@
 		$( ".box" ).draggable({
 			containment: "parent"
 		});
-		if (document.getElementById("rotated").value == true) {
+		if (document.getElementById("rotated").checked == true) {
 			box.style.height = (document.getElementById("length").value * 15) + "px";
 			box.style.width = (document.getElementById("width").value * 15) + "px";
 		} else {
