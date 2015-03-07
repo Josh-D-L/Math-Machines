@@ -48,14 +48,15 @@
 		<br>
 		<button onclick="submit()">Submit</button>
 		<br>
-		<button onclick="clear()">Clear</button>
+		<button onclick="erase()">Clear</button>
+		<br>
 	</div>
 	<div class="container">
 	</div>
 	<br>
 	
 	<script>
-	function submit() {
+	function erase() {
 		console.log("test");
 		$('.container').empty();
 		var toClear = document.getElementsByClassName("container")[0];
@@ -63,7 +64,7 @@
 			toClear.removeChild(toClear.firstChild);
 		}
 	}
-	function clear() {
+	function submit() {
 		var box = document.createElement('div');
 		document.getElementsByClassName("container")[0].appendChild(box);
 		box.className = 'box';
