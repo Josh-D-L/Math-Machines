@@ -56,6 +56,14 @@
 	
 	<script>
 	function submit() {
+		console.log("test");
+		$('.container').empty();
+		var toClear = document.getElementsByClassName("container")[0];
+		while (toClear.firstChild) {
+			toClear.removeChild(toClear.firstChild);
+		}
+	}
+	function clear() {
 		var box = document.createElement('div');
 		document.getElementsByClassName("container")[0].appendChild(box);
 		box.className = 'box';
@@ -70,14 +78,6 @@
 		box.style.height = (document.getElementById("width").value * 15) + "px";
 		if (document.getElementById("rotated").value == true) {
 			box.style.transform = "rotate(90deg)";
-		}
-	}
-	function clear() {
-		console.log("test");
-		$('.container').empty();
-		var toClear = document.getElementsByClassName("container")[0];
-		while (toClear.firstChild) {
-			toClear.removeChild(toClear.firstChild);
 		}
 	}
 	</script>
