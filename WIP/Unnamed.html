@@ -58,6 +58,7 @@
 		draw.stroke();
 		var coords = [document.getElementById("startX").value, 500 - document.getElementById("startY").value];
 		draw.fillRect(coords[0], coords[1], 1, 1);
+		clearInterval(sessionStorage.interval);
 		document.getElementById("Points").innerText = 1;
 	}
 	function start() {
