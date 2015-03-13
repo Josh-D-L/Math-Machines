@@ -198,8 +198,8 @@ function fontSize() {
 }
 function tableSize() {
 	var container = document.getElementById("theContainer");
-	container.style.width = document.getElementById("TableWidth").value * 15;
-	container.style.height = document.getElementById("TableHeight").value * 15;
+	container.style.width = (document.getElementById("TableWidth").value * 15) + "px";
+	container.style.height = (document.getElementById("TableHeight").value * 15) + "px";
 }
 function settings() {
 	if (localStorage.getItem("Background Color") != null) {
