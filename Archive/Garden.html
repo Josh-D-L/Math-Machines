@@ -131,6 +131,12 @@
 		<input type="number" id="Font Size" onchange="fontSize()" style="width: 45px" value="16" min="1" max="100"/>
 		Font Size (px)
 		<br/>
+		<input type="number" id="TableWidth" onchange="tableSize()" style="width: 45px" value="12" min="1" max="100"/>
+		Table Width
+		<br/>
+		<input type="number" id="TableHeight" onchange="tableSize()" style="width: 45px" value="24" min="1" max="100"/>
+		Table Height
+		<br/>
 		<button type="button" onclick="reset()">Reset Settings</button>
 	</div>
 	<script>
@@ -184,6 +190,11 @@ function titleColor() {
 function fontSize() {
 	var size = document.getElementById("Font Size").value;
 	document.body.style.fontSize = size + "px";
+}
+function tableSize() {
+	var container = document.getElementsByClassName("container")[0];
+	container.width = document.getElementById("TableWidth").value * 15;
+	container.height = document.getElementById("TableHeight").value * 15;
 }
 function settings() {
 	if (localStorage.getItem("Background Color") != null) {
