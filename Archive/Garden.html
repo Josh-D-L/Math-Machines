@@ -214,6 +214,13 @@ function settings() {
 	document.getElementById("title").style.color = localStorage.getItem("Title Color");
 	document.body.style.color = localStorage.getItem("Text Color");
 	document.body.style.backgroundColor = localStorage.getItem("Background Color");
+	if (localStorage.getItem("TableHeight") != null) {
+		document.getElementById("TableHeight").value = localStorage.getItem("TableHeight");
+	}
+	if (localStorage.getItem("TableWidth") != null) {
+		document.getElementById("TableWidth").value = localStorage.getItem("TableWidth");
+	}
+	tableSize();
 }
 document.getElementsByClassName("spoiler")[0].style.display = "none";
 document.getElementById("Background Color").value = "#FFFFFF";
