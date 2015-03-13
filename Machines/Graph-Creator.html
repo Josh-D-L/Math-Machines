@@ -199,7 +199,9 @@ function settings() {
 		document.getElementById("Diagram Background Color").value = localStorage.getItem("Diagram Background Color");
 	}
 	document.getElementById("Height/Width").value = localStorage.getItem("Height/Width");
-	document.getElementById("xVal").value = localStorage.getItem("xVal");
+	if (localStorage.getItem("xVal") != null) {
+		document.getElementById("xVal").value = localStorage.getItem("xVal");
+	}
 	submit();
 }
 document.getElementsByClassName("spoiler")[0].style.display = "none";
