@@ -66,7 +66,7 @@
 		<button onclick="deleteLast()">Undo</button>
 		<br>
 	</div>
-	<div class="container">
+	<div class="container" id="theContainer">
 	</div>
 	<br>
 	
@@ -145,6 +145,8 @@ function endSession() {
 	  localStorage.setItem("Title Color", document.getElementById("Title Color").value);
 	  localStorage.setItem("Text Color", document.getElementById("Text Color").value);
 	  localStorage.setItem("Font Size", document.getElementById("Font Size").value);
+	  localStorage.setItem("TableHeight", document.getElementById("TableHeight").value);
+	  localStorage.setItem("TableWidth", document.getElementById("TableWidth").value);
 }
 var toggle = "on";
 function toggleDisplay() {
@@ -174,6 +176,9 @@ function reset() {
 	document.getElementById("title").style.color = "#000000";
 	document.body.style.color = "#000000";
 	document.body.style.backgroundColor = "#FFFFFF";
+	document.getElementById("TableHeight").value = 24;
+	document.getElementById("TableWidth").value = 12;
+	tableSize();
 }
 function backgroundColor() {
 	var color = document.getElementById("Background Color").value;
@@ -192,9 +197,9 @@ function fontSize() {
 	document.body.style.fontSize = size + "px";
 }
 function tableSize() {
-	var container = document.getElementsByClassName("container")[0];
-	container.width = document.getElementById("TableWidth").value * 15;
-	container.height = document.getElementById("TableHeight").value * 15;
+	var container = document.getElementById("theContainer");
+	container.style.width = document.getElementById("TableWidth").value * 15;
+	container.style.height = document.getElementById("TableHeight").value * 15;
 }
 function settings() {
 	if (localStorage.getItem("Background Color") != null) {
