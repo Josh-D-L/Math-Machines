@@ -56,7 +56,11 @@
 	}
 	function stop() {
 		clearInterval(sessionStorage.interval);
-		runTime = Number(document.getElementById("Time").innerText);
+		if (document.getElementById("Units").innerText == "minutes") {
+			runTime = Number(document.getElementById("Time").innerText) / 60;
+		} else {
+			runTime = Number(document.getElementById("Time").innerText);
+		}
 	}
 	sessionStorage.setItem("xCoord", startX);
 	sessionStorage.setItem("yCoord", diagram.width - startY);
@@ -91,10 +95,10 @@
 			document.getElementById("Time").innerText = runTime + Math.floor((b - a) / 1000);
 			document.getElementById("Units").innerText = "seconds";
 		} else {
-			document.getElementById("Time").innerText = runTime + Math.floor((b - a) / 60000);
+			document.getElementById("Time").innerText = (runTime / 60) + Math.floor((b - a) / 60000);
 			document.getElementById("Units").innerText = "minutes";
 		}
-		document.getElementById("PPS").innerText = Math.round(Number(document.getElementById("Points").innerText) / ((b - a) / 1000));
+		document.getElementById("PPS").innerText = Math.round(Number(document.getElementById("Points").innerText) / (runTime + ((b - a) / 1000)));
 	}
 </script>
 <button type="button" style="position: fixed; right: 25px; top: 0px" id="spoilerShow" onclick="toggleDisplay()">Settings</button>
