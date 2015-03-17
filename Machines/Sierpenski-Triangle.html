@@ -15,11 +15,15 @@
 	</style>
 	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 </head>
-<body style="font-size: 16px; color: rgb(0, 0, 0); background-color: rgb(192, 192, 192);">
-<h1 style="text-align: center; color: rgb(0, 0, 0);" id="title">Sierpenski's Triangle</h1>
+<body>
+<h1 style="text-align: center;" id="title">Sierpenski's Triangle</h1>
+<p style="text-align: center;">
+This program draws Sierpenski's Triangle by picking a point on the equilateral triangle, (It's sides are hidden)<br>
+and then selecting a random vertex, and plotting a point at the midpoint between those two, and then doing the same thing from the new point.
+</p>
 <p><span id="Points">0</span> points have been drawn in <span id="Time">0</span> <span id="Units">seconds</span>. (<span id="PPS">0</span> points per second)</p>
 <br>
-<input type="number" id="width" placeholder="Diagram Width" value="1300" min="1" onchange="resize()"> (Number of Pixels wide)
+<input type="number" id="width" placeholder="Diagram Width" value="300" min="1" onchange="resize()"> (Number of Pixels wide)
 <br>
 <button onclick="start()">Start</button><button onclick="stop()">Stop</button>
 <p>or Plot <input type="number" id="PtP" placeholder="Number" value="1000" min="1" max="100000"> points <button onclick="plotPoints()">Go</button><br><span style="color:#A00000;font-weight:bold;">Will freeze tab until all points are plotted</span></p>
