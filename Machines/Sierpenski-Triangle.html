@@ -27,7 +27,7 @@ and then selecting a random vertex, and plotting a point at the midpoint between
 <br>
 <button onclick="start()">Start</button><button onclick="stop()">Stop</button>
 <p>or Plot <input type="number" id="PtP" placeholder="Number" value="1000" min="1" max="100000"> points <button onclick="plotPoints()">Go</button><br><span style="color:#A00000;font-weight:bold;">Will freeze tab until all points are plotted</span></p>
-<canvas id="diagram" width="1300" height="1300" title="Diagram" style="margin: 1px;"></canvas>
+<canvas id="diagram" width="300" height="300" title="Diagram" style="margin: 1px;"></canvas>
 <script>
 	var diagram = document.getElementById("diagram");
 	var draw = diagram.getContext("2d");
