@@ -19,7 +19,7 @@
 <h1 style="text-align: center; color: rgb(0, 0, 0);" id="title">Sierpenski's Triangle</h1>
 <p><span id="Points">0</span> points have been drawn in <span id="Time">0</span> <span id="Units">seconds</span>. (<span id="PPS">26</span> points per second)</p>
 <br>
-<input type="number" id="width" placeholder="Diagram Width" value="1300" min="1" onchange="resize()">
+<input type="number" id="width" placeholder="Diagram Width" value="1300" min="1" onchange="resize()"> (Number of Pixels wide)
 <br>
 <button onclick="start()">Start</button><button onclick="stop()">Stop</button>
 <p>or Plot <input type="number" id="PtP" placeholder="Number" value="1000" min="1" max="100000"> points <button onclick="plotPoints()">Go</button><br><span style="color:#A00000;font-weight:bold;">Will freeze tab until all points are plotted</span></p>
@@ -50,15 +50,16 @@
 	function start() {
 		clearInterval(sessionStorage.interval);
 		var a = performance.now();
-		sessionStorage.interval = setInterval(points, .1);
+		sessionStorage.interval = setInterval(function () {
+			points(a);
+		}, .1);
 	}
 	function stop() {
 		clearInterval(sessionStorage.interval);
 	}
 	sessionStorage.setItem("xCoord", startX);
 	sessionStorage.setItem("yCoord", diagram.width - startY);
-	var a = performance.now();
-	function points() {
+	function points(a) {
 		$("#document").stop(true,true);
 		document.getElementById("Points").innerText = Number(document.getElementById("Points").innerText) + 1;
 		var pointXcoord = sessionStorage.getItem("xCoord");
