@@ -87,7 +87,7 @@
 			draw.fillRect(newX, diagram.width - newY, 1, 1);
 		}
 		var b = performance.now();
-		if (runTime + Math.floor(Number((b - a) / 1000) < 1200) {
+		if (runTime + Math.floor(Number((b - a) / 1000)) < 1200) {
 			document.getElementById("Time").innerText = runTime + Math.floor((b - a) / 1000);
 			document.getElementById("Units").innerText = "seconds";
 		} else {
