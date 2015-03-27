@@ -62,11 +62,6 @@ and then selecting a random vertex, and plotting a point at the midpoint between
 	}
 	function stop() {
 		clearInterval(sessionStorage.interval);
-		if (document.getElementById("Units").innerText == "minutes") {
-			runTime = Number(document.getElementById("Time").innerText) / 60;
-		} else {
-			runTime = Number(document.getElementById("Time").innerText);
-		}
 	}
 	sessionStorage.setItem("xCoord", startX);
 	sessionStorage.setItem("yCoord", diagram.width - startY);
@@ -103,7 +98,7 @@ and then selecting a random vertex, and plotting a point at the midpoint between
 			document.getElementById("Time").innerText = Math.floor((runTime / 60) + (b - a) / 60000);
 			document.getElementById("Units").innerText = "minutes";
 		}
-		runTime = (b - a) / 1000;
+		runTime += (b - a) / 1000;
 		document.getElementById("PPS").innerText = Math.round(Number(document.getElementById("Points").innerText) / (runTime + ((b - a) / 1000)));
 	}
 </script>
