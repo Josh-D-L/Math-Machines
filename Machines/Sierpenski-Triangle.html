@@ -99,6 +99,7 @@ and then selecting a random vertex, and plotting a point at the midpoint between
 			document.getElementById("Units").innerText = "minutes";
 		}
 		runTime += (b - a) / 1000;
+		console.log(runTime);
 		document.getElementById("PPS").innerText = Math.round(Number(document.getElementById("Points").innerText) / (runTime + ((b - a) / 1000)));
 	}
 </script>
