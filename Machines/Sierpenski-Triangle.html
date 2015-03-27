@@ -42,6 +42,17 @@ and then selecting a random vertex, and plotting a point at the midpoint between
 		for (var x = 0; x < document.getElementById("PtP").value; x++) {
 			points(a);
 		}
+		var b = performance.now();
+		if (Math.floor(runTime + Number((b - a) / 1000)) < 1200) {
+			document.getElementById("Time").innerText = Math.floor(runTime + (b - a) / 1000);
+			document.getElementById("Units").innerText = "seconds";
+		} else {
+			document.getElementById("Time").innerText = Math.floor((runTime / 60) + (b - a) / 60000);
+			document.getElementById("Units").innerText = "minutes";
+		}
+		runTime += (b - a) / 1000;
+		console.log(runTime);
+		document.getElementById("PPS").innerText = Math.round(Number(document.getElementById("Points").innerText) / (runTime + ((b - a) / 1000)));
 	}
 	function resize() {
 		diagram.width = document.getElementById("width").value;
