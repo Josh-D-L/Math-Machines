@@ -39,7 +39,12 @@ and then selecting a random vertex, and plotting a point at the midpoint between
 	function plotPoints() {
 		var a = performance.now();
 		for (var x = 0; x < document.getElementById("PtP").value; x++) {
-			points();
+			points(a, runTime);
+		}
+		if (document.getElementById("Units").innerText == "minutes") {
+			runTime = Number(document.getElementById("Time").innerText) / 60;
+		} else {
+			runTime = Number(document.getElementById("Time").innerText);
 		}
 	}
 	function resize() {
