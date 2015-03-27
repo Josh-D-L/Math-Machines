@@ -55,8 +55,8 @@ and then selecting a random vertex, and plotting a point at the midpoint between
 	}
 	function start() {
 		clearInterval(sessionStorage.interval);
-		var a = performance.now();
 		sessionStorage.interval = setInterval(function () {
+			var a = performance.now();
 			points(a);
 		}, .1);
 	}
