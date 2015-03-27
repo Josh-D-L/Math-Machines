@@ -40,7 +40,7 @@ and then selecting a random vertex, and plotting a point at the midpoint between
 	function plotPoints() {
 		var a = performance.now();
 		for (var x = 0; x < document.getElementById("PtP").value; x++) {
-			points(a, runTime);
+			points(a);
 		}
 	}
 	function resize() {
@@ -57,7 +57,7 @@ and then selecting a random vertex, and plotting a point at the midpoint between
 		clearInterval(sessionStorage.interval);
 		var a = performance.now();
 		sessionStorage.interval = setInterval(function () {
-			points(a, runTime);
+			points(a);
 		}, .1);
 	}
 	function stop() {
@@ -65,7 +65,7 @@ and then selecting a random vertex, and plotting a point at the midpoint between
 	}
 	sessionStorage.setItem("xCoord", startX);
 	sessionStorage.setItem("yCoord", diagram.width - startY);
-	function points(a, runTime) {
+	function points(a) {
 		$("#document").stop(true,true);
 		document.getElementById("Points").innerText = Number(document.getElementById("Points").innerText) + 1;
 		var pointXcoord = sessionStorage.getItem("xCoord");
