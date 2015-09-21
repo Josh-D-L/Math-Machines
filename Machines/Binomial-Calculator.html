@@ -191,7 +191,7 @@
 		function Factor(Equation, Variable) {
 			var Values = [Equation[0].value, Equation[1].value, Equation[2].value, Equation[3].value, Equation[4].value, Equation[5].value];
 			var First_Term_Factors;
-			var GCF = 1;
+			var GCF = "";
 			if (Values[1] > 1) {
 				for (var i = Values[1]; i > 1; i--)
 					if (is_int(Values[3] / i) == true && is_int(Values[5] / i) == true) {
@@ -214,7 +214,7 @@
 				} else {
 					Values[4] = "+";
 				}
-				GCF = GCF * -1;
+				GCF = "-" + GCF;
 			}
 			First_Term_Factors = FindFactors(Values[1], false);
 			var Constant_Factors;
