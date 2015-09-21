@@ -191,12 +191,14 @@
 		function Factor(Equation, Variable) {
 			var Values = [Equation[0].value, Equation[1].value, Equation[2].value, Equation[3].value, Equation[4].value, Equation[5].value];
 			var First_Term_Factors;
+			var GCF = 1;
 			if (Values[1] > 1) {
 				for (var i = Values[1]; i > 1; i--)
 					if (is_int(Values[3] / i) == true && is_int(Values[5] / i) == true) {
 						Values[1] = Values[1] / i;
 						Values[3] = Values[3] / i;
 						Values[5] = Values[5] / i;
+						GCF = i;
 						i = 0;
 					}
 			}
@@ -212,6 +214,7 @@
 				} else {
 					Values[4] = "+";
 				}
+				GCF = GCF * -1;
 			}
 			First_Term_Factors = FindFactors(Values[1], false);
 			var Constant_Factors;
@@ -247,6 +250,7 @@
 						while (Factors.indexOf(" - -") > -1) {
 							Factors = Factors.replace(" - -", " + ");
 						}
+						Factors = GCF + Factors;
 						return Factors;
 					} else if (First_Term_Factors[x] * Constant_Factors[y + 1] + First_Term_Factors[x + 1] * Constant_Factors[y] == Values[3]) {
 						Factored = true;
@@ -261,6 +265,7 @@
 						while (Factors.indexOf(" - -") > -1) {
 							Factors = Factors.replace(" - -", " + ");
 						}
+						Factors = GCF + Factors;
 						return Factors;
 					}
 				}
