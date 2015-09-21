@@ -191,11 +191,27 @@
 		function Factor(Equation, Variable) {
 			var Values = [Equation[0].value, Equation[1].value, Equation[2].value, Equation[3].value, Equation[4].value, Equation[5].value];
 			var First_Term_Factors;
-			if (Values[0] == "-") {
-				First_Term_Factors = FindFactors(Values[1], true);
-			} else {
-				First_Term_Factors = FindFactors(Values[1], false);
+			if (Values[1] > 1) {
+				if (is_int(Values[3] / Values[1]) == true && is_int(Values[5] / Values[1]) == true) {
+					Values[1] = Values[1] / Values[1];
+					Values[3] = Values[3] / Values[1];
+					Values[5] = Values[5] / Values[1];
+				}
 			}
+			if (Values[0] == "-") {
+				Values[0] = "+";
+				if (Values[2] == "+") {
+					Values[2] = "-";
+				} else {
+					Values[2] = "+";
+				}
+				if (Values[4] == "+") {
+					Values[4] = "-";
+				} else {
+					Values[4] = "+";
+				}
+			}
+			First_Term_Factors = FindFactors(Values[1], false);
 			var Constant_Factors;
 			if (Values[4] == "-") {
 				Constant_Factors = FindFactors(Values[5], true);
