@@ -363,6 +363,7 @@
 			var Factored = Factor(Equation1, Variable);
 			document.getElementById("Result").innerText += Factored;
 			document.getElementById("Result").innerHTML += "<br>";
+			Factored.splice(0, Factored.indexOf("("));
 			Factored = Factored.split(")(");
 			Factored[0] = Factored[0].replace("(", "");
 			Factored[1] = Factored[1].replace(")", "");
