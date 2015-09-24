@@ -1,0 +1,62 @@
+<html>
+	<head>
+		
+	</head>
+	<body>
+		<canvas id="canvas" width="1000" height="1000" style="border: 1px solid black"></canvas>
+		<button onclick="newIteration();">
+			Next Iteration
+		</button>
+		<script>
+			function newIteration() {
+				ctx.strokeStyle = "#000000";
+				var NumNewPoints = LinesX.length;
+				for (var i = 0; i < NumNewPoints; i += 2) {
+					var distance = Math.sqrt(Math.pow(LinesX[i] - LinesX[i + 1], 2) + Math.pow(LinesY[i] - LinesY[i + 1], 2));
+					var out = distance / 6 * Math.sqrt(3);
+					var outSlope = -(Math.abs(LinesX[i] - LinesX[i + 1]) / Math.abs(LinesY[i] - LinesY[i + 1]));
+					var relativeX = Math.sqrt(Math.pow(out, 2) / (outSlope + 1));
+					var relativeY = outSlope * relativeX;
+					var verticeX = relativeX + (LinesX[i] + LinesX[i + 1]) / 2;
+					var verticeY = relativeY + (LinesY[i] + LinesY[i + 1]) / 2;
+					ctx.moveTo(verticeX,verticeY);
+					ctx.lineTo((LinesX[i] + LinesX[i + 1]) / 3, (LinesY[i] + LinesY[i + 1]) / 3);
+					ctx.stroke();
+					ctx.moveTo(verticeX,verticeY);
+					ctx.lineTo(2 * (LinesX[i] + LinesX[i + 1]) / 3, 2 * (LinesY[i] + LinesY[i + 1]) / 3);
+					ctx.stroke();
+					ctx.moveTo(endX - verticeX,verticeY);
+					ctx.lineTo(endX - (LinesX[i] + LinesX[i + 1]) / 3, (LinesY[i] + LinesY[i + 1]) / 3);
+					ctx.stroke();
+					ctx.moveTo(endX - verticeX,verticeY);
+					ctx.lineTo(endX - 2 * (LinesX[i] + LinesX[i + 1]) / 3, 2 * (LinesY[i] + LinesY[i + 1]) / 3);
+					ctx.stroke();
+					ctx.moveTo(LinesX[i], LinesY[i]);
+					ctx.lineTo(LinesX[i + 1], LinesY[i + 1]);
+					ctx.strokeStyle = "#FFFFFF";
+					ctx.stroke();
+					LinesX.splice(i, 2);
+					LinesY.splice(i, 2);
+					LinesX.push(verticeX);
+					LinesX.push((LinesX[i] + LinesX[i + 1]) / 3);
+					LinesX.push(verticeX);
+					LinesX.push(2 * (LinesX[i] + LinesX[i + 1]) / 3);
+					LinesX.push(verticeY);
+					LinesX.push((LinesY[i] + LinesY[i + 1]) / 3);
+					LinesX.push(verticeY);
+					LinesX.push(2 * (LinesY[i] + LinesY[i + 1]) / 3);
+				}
+			}
+			var endX = 1000;
+			var c = document.getElementById("canvas");
+			var ctx = c.getContext("2d");
+			ctx.strokeStyle = "#000000";
+			ctx.moveTo(0,0);
+			ctx.lineTo(endX,0);
+			ctx.stroke();
+			var LinesX = [0, endX];
+			var LinesY = [0, 0];
+			newIteration();
+		</script>
+	</body>
+</html>
