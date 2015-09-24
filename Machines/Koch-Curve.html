@@ -3,7 +3,7 @@
 		
 	</head>
 	<body>
-		<canvas id="canvas" width="1000" height="1000" style="border: 1px solid black"></canvas>
+		<canvas id="myCanvas" width="1000" height="1000" style="border: 1px solid black"></canvas>
 		<button onclick="newIteration();">
 			Next Iteration
 		</button>
@@ -53,12 +53,12 @@
 				}
 			}
 			var endX = 1000;
-			var c = document.getElementById("canvas");
+			var c = document.getElementById("myCanvas");
 			var ctx = c.getContext("2d");
-			ctx.strokeStyle = "black";
+			ctx.strokeStyle = "black"
 			ctx.beginPath();
-			ctx.moveTo(0,50);
-			ctx.lineTo(endX,50);
+			ctx.moveTo(0, 0);
+			ctx.lineTo(300, 150);
 			ctx.stroke();
 			var LinesX = [0, endX];
 			var LinesY = [50, 50];
