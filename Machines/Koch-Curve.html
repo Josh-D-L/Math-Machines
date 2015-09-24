@@ -9,6 +9,10 @@
 		</button>
 		<script>
 			function newIteration() {
+				var endX = sessionStorage.getItem("endX");
+				var endY = sessionStorage.getItem("endY");
+				var LinesX = sessionStorage.getItem("LinesX").split(",");
+				var LinesY = sessionStorage.getItem("LinesY").split(",");
 				ctx.strokeStyle = "black";
 				var NumNewPoints = LinesX.length;
 				for (var i = 0; i < NumNewPoints; i += 2) {
@@ -51,9 +55,15 @@
 					LinesX.push(verticeY);
 					LinesX.push(2 * (LinesY[i] + LinesY[i + 1]) / 3);
 				}
+				sessionStorage.setItem("endX", endX);
+				sessionStorage.setItem("endY", endY);
+				sessionStorage.setItem("LinesX", LinesX.join(","));
+				sessionStorage.setItem("linesY", LinesY.join(","));
 			}
 			var endX = 1000;
 			var endY = 1000;
+			sessionStorage.setItem("endX", endX);
+			sessionStorage.setItem("endY", endY);
 			var c = document.getElementById("myCanvas");
 			var ctx = c.getContext("2d");
 			ctx.strokeStyle = "black"
@@ -63,6 +73,8 @@
 			ctx.stroke();
 			var LinesX = [0, endX];
 			var LinesY = [0, 0];
+			sessionStorage.setItem("LinesX", LinesX.join(","));
+			sessionStorage.setItem("linesY", LinesY.join(","));
 			newIteration();
 		</script>
 	</body>
