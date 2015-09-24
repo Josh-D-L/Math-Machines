@@ -21,19 +21,19 @@
 					var verticeY = relativeY + (LinesY[i] + LinesY[i + 1]) / 2;
 					ctx.beginPath();
 					ctx.moveTo(verticeX,verticeY);
-					ctx.lineTo((LinesX[i] + LinesX[i + 1]) / 3, (LinesY[i] + LinesY[i + 1]) / 3);
+					ctx.lineTo((LinesX[i] + LinesX[i + 1]) / 3, endY - ((LinesY[i] + LinesY[i + 1]) / 3));
 					ctx.stroke();
 					ctx.beginPath();
 					ctx.moveTo(verticeX,verticeY);
-					ctx.lineTo(2 * (LinesX[i] + LinesX[i + 1]) / 3, 2 * (LinesY[i] + LinesY[i + 1]) / 3);
+					ctx.lineTo(2 * (LinesX[i] + LinesX[i + 1]) / 3, endY - (2 * (LinesY[i] + LinesY[i + 1]) / 3));
 					ctx.stroke();
 					ctx.beginPath();
 					ctx.moveTo(endX - verticeX,verticeY);
-					ctx.lineTo(endX - (LinesX[i] + LinesX[i + 1]) / 3, (LinesY[i] + LinesY[i + 1]) / 3);
+					ctx.lineTo(endX - (LinesX[i] + LinesX[i + 1]) / 3, endY - ((LinesY[i] + LinesY[i + 1]) / 3));
 					ctx.stroke();
 					ctx.beginPath();
 					ctx.moveTo(endX - verticeX,verticeY);
-					ctx.lineTo(endX - 2 * (LinesX[i] + LinesX[i + 1]) / 3, 2 * (LinesY[i] + LinesY[i + 1]) / 3);
+					ctx.lineTo(endX - 2 * (LinesX[i] + LinesX[i + 1]) / 3, endY - (2 * (LinesY[i] + LinesY[i + 1]) / 3));
 					ctx.stroke();
 					ctx.beginPath();
 					ctx.moveTo(LinesX[i], LinesY[i]);
@@ -53,12 +53,13 @@
 				}
 			}
 			var endX = 1000;
+			var endY = 1000;
 			var c = document.getElementById("myCanvas");
 			var ctx = c.getContext("2d");
 			ctx.strokeStyle = "black"
 			ctx.beginPath();
-			ctx.moveTo(0, 0);
-			ctx.lineTo(endX, 0);
+			ctx.moveTo(0, endY);
+			ctx.lineTo(endX, endY);
 			ctx.stroke();
 			var LinesX = [0, endX];
 			var LinesY = [50, 50];
